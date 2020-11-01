@@ -1,0 +1,59 @@
+<template>
+<div>
+  <b-navbar toggleable="lg" type="light" variant="light" fixed="top">
+    <b-navbar-brand><router-link to="/">COVID-19 Risk Assessment Tool</router-link></b-navbar-brand>
+
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+    <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav>
+        <!-- <b-nav-item href="#">Dashboard</b-nav-item> -->
+        <b-nav-item><router-link to="/">Dashboard</router-link></b-nav-item>
+        <b-nav-item><router-link to="/todaysdata">Today's Assessment Data</router-link></b-nav-item>
+        <!-- <b-nav-item href="#">About</b-nav-item> -->
+        <b-nav-item><router-link to="/about">About</router-link></b-nav-item>
+      </b-navbar-nav>
+
+      <!-- Right aligned nav items -->
+      <b-navbar-nav class="ml-auto">
+        
+
+        <b-nav-item-dropdown right>
+          <!-- Using 'button-content' slot -->
+          <template v-slot:button-content>
+            User
+          </template>
+          <b-dropdown-item href="#">Profile</b-dropdown-item>
+          <b-dropdown-item href="#">Settings</b-dropdown-item>
+          <b-dropdown-item href="#">
+            <div v-if="!$auth.loading">
+            <!-- show login when not authenticated -->
+            <a v-if="!$auth.isAuthenticated" @click="login" class="button is-dark"><strong>Sign in</strong></a>
+            <!-- show logout when authenticated -->
+            <a v-if="$auth.isAuthenticated" @click="logout" class="button is-dark"><strong>Log out</strong></a>
+            </div>
+          </b-dropdown-item>
+        </b-nav-item-dropdown>
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
+</div>
+</template>
+
+<script>
+  export default {
+    name: 'Navbar',
+    methods: {
+      // Log the user in
+      login() {
+        this.$auth.loginWithRedirect();
+      },
+      // Log the user out
+      logout() {
+        this.$auth.logout({
+          returnTo: window.location.origin
+        });
+      }
+    }
+  }
+</script>
