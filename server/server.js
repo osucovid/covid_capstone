@@ -1,14 +1,18 @@
 // server/server.js
 const express = require("express");
+const serveStatic = require("serve-static");
+const path = require("path");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
-const port = 8000;
+// const port = 8000;
+const port = process.env.PORT || 8000;
 
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
+app.use(serveStatic(path.join(__dirname, "dist")));
 
 // mock data to send to our frontend
 let events = [
