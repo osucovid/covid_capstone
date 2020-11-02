@@ -8,7 +8,7 @@
       <!-- <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> -->
     </div>
-    
+
     <div class="button-block">
       <button type="button" v-if="!$auth.isAuthenticated" @click="login" class="btn btn-secondary btn-lg">Sign in to see personalized risk assessment</button>
       <h3 v-if="$auth.isAuthenticated">Welcome, {{ $auth.user.name }}!</h3>
