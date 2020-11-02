@@ -41,6 +41,14 @@ const routes = [
         /* webpackChunkName: "about" */ "../components/partials/RiskGraph.vue"
       ),
   },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: () => 
+      import(
+        "../views/Profile.vue"
+      )
+  }
 ];
 
 const router = new VueRouter({
