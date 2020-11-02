@@ -55,7 +55,7 @@ if (process.env.NODE_ENV === "production") {
   //look at that folder as our static folder
   app.use(express.static(__dirname + "/public/"));
 
-  //handle spa - any route
+  //handle spa - for any route
   app.get(/.*/, (req, res) => res.sendFile(__dirname + "/public/index.html"));
 }
 
