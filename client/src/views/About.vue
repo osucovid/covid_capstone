@@ -7,14 +7,11 @@
 </template>
 
 <script>
-import GeneralForm from '@/components/GeneralForm.vue'
 import Guide from '@/components/Guide.vue'
 
 export default {
   name: 'About',
   components: {
-    // HelloWorld
-    GeneralForm,
     Guide
   }
 }
