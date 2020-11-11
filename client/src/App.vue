@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <div class="page" v-if="getSpinner">
+      <b-spinner class="spinner" variant="primary" key="primary"></b-spinner>
+    </div>
     <div id="nav">
       <Nav />
       <!-- router-link and router-view is how our app will handle routing -->
@@ -10,12 +13,19 @@
     </div>
 
     <div class="button-block">
-      <button type="button" v-if="!$auth.isAuthenticated" @click="login" class="btn btn-secondary btn-lg">Sign in to see personalized risk assessment</button>
+      <button
+        type="button"
+        v-if="!$auth.isAuthenticated"
+        @click="login"
+        class="btn btn-secondary btn-lg"
+      >
+        Sign in to see personalized risk assessment
+      </button>
       <h3 v-if="$auth.isAuthenticated">Welcome, {{ $auth.user.name }}!</h3>
     </div>
 
     <!-- router-view/ is the router to the Home.vue contains the dashboard from the Main.vue component located at the /components folder -->
-    <router-view/>
+    <router-view />
     <div id="footer">
       <Footer />
     </div>
@@ -23,21 +33,25 @@
 </template>
 
 <script>
-import Nav from './components/partials/Nav.vue'
-import Footer from './components/partials/Footer.vue'
+import Nav from "./components/partials/Nav.vue";
+import Footer from "./components/partials/Footer.vue";
+import { mapGetters } from "vuex";
 export default {
-  name: 'app',
+  name: "app",
   components: {
     Nav,
-    Footer
+    Footer,
+  },
+  computed: {
+    ...mapGetters(["getSpinner"]),
   },
   methods: {
     // user login
     login() {
       this.$auth.loginWithRedirect();
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss">
@@ -70,5 +84,18 @@ export default {
   bottom: 0;
   width: 100%;
   text-align: center;
+}
+
+.page {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 25;
+  width: 100%;
+  height: 100%;
+}
+
+.spinner {
+  position: relative;
+  top: 50%;
 }
 </style>
