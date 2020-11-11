@@ -1,9 +1,9 @@
 <template>
   <div>
-      <h2>Sign Up for an Account</h2>
-      <b-progress :value="value" :max="max" show-progress animated></b-progress>
+      <!-- <h2>Sign Up for an Account</h2> -->
+      <!-- <b-progress :value="value" :max="max" show-progress animated></b-progress>
       <b-progress class="mt-2" :max="max" show-value>
-      </b-progress>
+      </b-progress> -->
 
     
     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
@@ -63,6 +63,7 @@
 
 <script>
   export default {
+    name: 'GeneralForm',
     // components: {
     //   'l-map': window.Vue2Leaflet.LMap,
     // },
