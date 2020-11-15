@@ -4,6 +4,8 @@
       <!-- <b-progress :value="value" :max="max" show-progress animated></b-progress>
       <b-progress class="mt-2" :max="max" show-value>
       </b-progress> -->
+
+Add form elements related to travel, activities, social distancing efforts here. (Delete email + symptoms labels later)
     
     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
       <b-form-group
@@ -21,58 +23,18 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="input-group-2" label="Your Name:" label-for="input-2">
-        <b-form-input
-          id="input-2"
-          v-model="form.name"
-          required
-          placeholder="Enter name"
-        ></b-form-input>
-      </b-form-group>
-
-      <b-form-group id="input-group-5" label="Age:" label-for="input-5">
-        <b-form-input
-          id="input-5"
-          v-model="form.age"
-          required
-          placeholder="Enter age"
-        ></b-form-input>
-      </b-form-group>
-
-      <b-form-group id="input-group-6" label="Job:" label-for="input-6">
-        <b-form-input
-          id="input-6"
-          v-model="form.job"
-          required
-          placeholder="Enter job"
-        ></b-form-input>
-      </b-form-group>
-
-      <b-form-group id="input-group-7" label="Pre-existing Medical Conditions">
-        <b-form-checkbox-group v-model="form.medical" id="checkboxes-7">
-          <b-form-checkbox value="cancer">Cancer</b-form-checkbox>
-          <b-form-checkbox value="kidney">Chronic Kidney Disease</b-form-checkbox>
-          <b-form-checkbox value="COPD">COPD</b-form-checkbox>
-          <b-form-checkbox value="heart">Heart Condition(s)</b-form-checkbox>
-          <b-form-checkbox value="immunocompromised">Immunocompromised</b-form-checkbox>
-          <b-form-checkbox value="obese">Obese</b-form-checkbox>
-          <b-form-checkbox value="sickle">Sickle Cell Disease</b-form-checkbox>
-          <b-form-checkbox value="smoker">Smoker</b-form-checkbox>
-          <b-form-checkbox value="diabetes">Type 2 Diabetes</b-form-checkbox>
-        </b-form-checkbox-group>
-      </b-form-group>
-
-      <b-form-group id="input-group-3" label="Primary Location:" label-for="input-3">
-        <b-form-select
-          id="input-3"
-          v-model="form.pLocation"
-          :options="pLocations"
-          required
-        ></b-form-select>
+      <b-form-group id="input-group-7" label="How often do you wear a mask?">
+        <b-form-radio-group v-model="form.checked" id="radio-1">
+          <b-form-radio v-model="selected" value="0">0%</b-form-radio>
+          <b-form-radio v-model="selected" value="25">25%</b-form-radio>
+          <b-form-radio v-model="selected" value="50">50%</b-form-radio>
+          <b-form-radio v-model="selected" value="75">75%</b-form-radio>
+          <b-form-radio v-model="selected" value="100">100%</b-form-radio>
+        </b-form-radio-group>
       </b-form-group>
 
       <b-form-group id="input-group-4">
-        <b-form-checkbox-group v-model="form.checked" id="checkboxes-4">
+        <b-form-checkbox-group v-model="form.mask" id="checkboxes-4">
           <b-form-checkbox value="asympomatic">I currently do not have COVID19 symptoms.</b-form-checkbox>
           <b-form-checkbox value="symptomatic">I currently DO have COVID19 symptoms.</b-form-checkbox>
         </b-form-checkbox-group>
