@@ -5,7 +5,7 @@
 
     <!-- Main is Main.vue which contains the Dashboard with the graph and Risk Assessment -->
     <Dashboard />
-    <Map />
+    <!-- <Map /> -->
     <RiskStatus />
     <JsonMap2 />
   </div>
