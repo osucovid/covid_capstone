@@ -7,7 +7,7 @@
     <Dashboard />
     <Map />
     <RiskStatus />
-    <JsonMap />
+    <JsonMap2 />
   </div>
 </template>
 
@@ -19,7 +19,7 @@
 import Dashboard from "@/components/Dashboard.vue";
 import RiskStatus from "@/components/RiskStatus.vue";
 import Map from "@/components/Map.vue";
-import JsonMap from "@/components/JsonMap.vue";
+import JsonMap2 from "@/components/JsonMap2.vue";
 
 export default {
   name: "Home",
@@ -28,7 +28,7 @@ export default {
     Dashboard,
     RiskStatus,
     Map,
-    JsonMap,
+    JsonMap2,
   },
 };
 </script>
