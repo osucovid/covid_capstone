@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div class="container">
+    <h1 class="text-center text-info ">JSON Map</h1>
+
     <div>
       <span v-if="loading">Loading...</span>
       <label for="checkbox">GeoJSON Visibility</label>
@@ -75,7 +77,12 @@ export default {
       }
       return (feature, layer) => {
         layer.bindTooltip(
-          "<div>code:" + feature + "</div><div>: " + feature + "</div>",
+          "<div>code:" +
+            // feature.properties.code +
+            feature.name +
+            "</div><div>nom: " +
+            feature.address +
+            "</div>",
           { permanent: false, sticky: true }
         );
       };
@@ -84,10 +91,10 @@ export default {
   async created() {
     this.loading = true;
     const response = await fetch(
-      "https://data.sfgov.org/resource/dtit-7gp4.json"
+      // "https://data.sfgov.org/resource/dtit-7gp4.json"
+      "https://rawgit.com/gregoiredavid/france-geojson/master/regions/pays-de-la-loire/communes-pays-de-la-loire.geojson"
     );
     const data = await response.json();
-
     this.geojson = data;
     console.log(this.geojson);
     this.loading = false;
