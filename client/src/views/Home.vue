@@ -18,7 +18,7 @@
 // Main contains the main dashbord
 import Dashboard from "@/components/Dashboard.vue";
 import RiskStatus from "@/components/RiskStatus.vue";
-import Map from "@/components/Map.vue";
+// import Map from "@/components/Map.vue";
 import JsonMap2 from "@/components/JsonMap2.vue";
 
 export default {
@@ -27,7 +27,7 @@ export default {
     // HelloWorld
     Dashboard,
     RiskStatus,
-    Map,
+    // Map,
     JsonMap2,
   },
 };
