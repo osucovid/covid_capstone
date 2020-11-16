@@ -59,7 +59,7 @@
                 >
               </div>
             </b-dropdown-item>
-            <b-dropdown-item href="#">Settings</b-dropdown-item>
+            <b-dropdown-item href="#"><router-link to="/settings">Settings</router-link></b-dropdown-item>
             <b-dropdown-item href="#">
               <div v-if="!$auth.loading">
                 <!-- show login when not authenticated -->

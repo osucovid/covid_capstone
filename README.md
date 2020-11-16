@@ -7,10 +7,15 @@ This version is separated into client and server folders.
 3. Within the client folder, install Vue with manual option.
   - Select: Babel, Router, CSS-Preprocessors, Linter / Formatter
   - Enable history mode
-  - Select: Sasss/SCSS 
+  - Select: Vue 2.x
+  - Select: Sasss/SCSS (with dart-sass) 
   - Select: ESLint with error preventio only
   - Select: Lint and fix on commit
   - Select: In dedicated config files
-4. Run Vue locally with, 'npm run serve' 
+4. 'npm install' in both client and server folders
+5. (optional) start the server with 'npm start'
+6. Run Vue locally with, 'npm run serve' 
+
+Remember to run 'npm run build' before pushing!
 
 *bootstrap-vue should be installed too, apologies if the instructions cause errors...
