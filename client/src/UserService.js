@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "api/posts/";
+const url = "api/users/";
 
 class PostService {
   //get posts
@@ -35,6 +35,7 @@ class PostService {
           resolve(
             data.map((post) => ({
               ...post,
+              createdAt: new Date(post.createdAt),
             }))
           );
         })
@@ -55,6 +56,11 @@ class PostService {
   static deletePost(id) {
     return axios.delete(`${url}${id}`);
   }
-}
 
+  static updatePost(email, firstName, lastName){
+    return axios.put(url, {
+      email, firstName, lastName,
+    });
+  }
+}
 export default PostService;

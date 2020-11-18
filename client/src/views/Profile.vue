@@ -1,13 +1,7 @@
 <template>
   <div>
     <div>
-      <img :src="$auth.user.picture" />
-      <h2>Username: {{ $auth.user.name }}</h2>
-      <p>Email: {{ $auth.user.email }}</p>
-    </div>
-
-    <div>
-      <pre>{{ JSON.stringify($auth.user, null, 2) }}</pre>
+      <UserInfo />
     </div>
 
     Enter or edit personal details
@@ -42,6 +36,7 @@
 <script>
 // import UserProfile from '@/components/UserProfile.vue'
 import UserInfoCard from "@/components/UserInfoCard.vue";
+import UserInfo from '@/components/UserInfo.vue'
 import { mapGetters } from "vuex";
 
 export default {
@@ -57,6 +52,7 @@ export default {
   },
   components: {
     "user-info-card": UserInfoCard,
+    UserInfo,
   },
   computed: {
     ...mapGetters(["getRows", "getDisplayUsers"]),
