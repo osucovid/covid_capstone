@@ -9,8 +9,8 @@
     >
       {{ index }}, {{ hospital.name }}, {{ hospital.address }}
     </li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+    <!-- <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Vestibulum at eros</li> -->
   </div>
 </template>
 
