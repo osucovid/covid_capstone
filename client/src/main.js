@@ -10,6 +10,7 @@ import "./custom.css";
 import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
+// import VueFormulate from "@braid/vue-formulate";
 
 delete Icon.Default.prototype._getIconUrl;
 Icon.Default.mergeOptions({
@@ -47,6 +48,8 @@ Vue.use(BootstrapVue);
 // optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin);
 Vue.use(Vuex);
+const VueFormulate = require("@braid/vue-formulate");
+Vue.use(VueFormulate.default);
 Vue.prototype.$store = store;
 
 // a Vue instance is required for every Vue app
