@@ -68,6 +68,7 @@
     </template>
     <template v-else-if="selected === 'Returning'">
       <DailyForm />
+      <WorkplaceForm />
     </template>
 
     <PostComponent />
@@ -81,12 +82,14 @@
 // Main contains the main dashbord
 import PostComponent from "@/components/PostComponent.vue";
 import DailyForm from "@/components/DailyForm.vue";
+import WorkplaceForm from "@/components/WorkplaceForm";
 
 export default {
   name: "TodaysData",
   components: {
     PostComponent,
     DailyForm,
+    WorkplaceForm,
   },
   data() {
     return {
