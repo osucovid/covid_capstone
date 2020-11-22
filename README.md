@@ -14,7 +14,8 @@ This version is separated into client and server folders.
   - Select: In dedicated config files
 4. 'npm install' in both client and server folders
 5. (optional) start the server with 'npm start'
-6. Run Vue locally with, 'npm run serve' 
+6. Install Vue Formulate in the client folder: npm install --save @braid/vue-formulate
+7. Run Vue locally with, 'npm run serve' 
 
 Remember to run 'npm run build' before pushing!
 
