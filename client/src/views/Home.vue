@@ -16,19 +16,19 @@
 // import HelloWorld from '@/components/HelloWorld.vue'
 
 // Main contains the main dashbord
-import Dashboard from "@/components/Dashboard.vue";
-import RiskStatus from "@/components/RiskStatus.vue";
+//import Dashboard from "@/components/Dashboard.vue";
+//import RiskStatus from "@/components/RiskStatus.vue";
 // import Map from "@/components/Map.vue";
-import JsonMap2 from "@/components/JsonMap2.vue";
+//import JsonMap2 from "@/components/JsonMap2.vue";
 
 export default {
   name: "Home",
   components: {
     // HelloWorld
-    Dashboard,
-    RiskStatus,
+    //Dashboard,
+    //RiskStatus,
     // Map,
-    JsonMap2,
+    //JsonMap2,
   },
 };
 </script>

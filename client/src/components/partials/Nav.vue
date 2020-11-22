@@ -12,7 +12,7 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <!-- <b-nav-item href="#">Dashboard</b-nav-item> -->
-          <b-nav-item><router-link to="/">Dashboard</router-link></b-nav-item>
+          <b-nav-item><router-link to="/dashboard">Dashboard</router-link></b-nav-item>
           <b-nav-item
             ><router-link to="/todaysdata"
               >Today's Assessment Data</router-link
