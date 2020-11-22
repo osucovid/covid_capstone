@@ -45,6 +45,9 @@
 </template>
 
 <style>
+
+@media only screen and (min-width: 600px) {
+
 #container {
   display: flex;
   flex-wrap: wrap;
@@ -58,11 +61,6 @@
   flex-basis: 60%;
 }
 
-#break {
-  flex-basis: 100%;
-  height: 0;
-}
-
 #card-container {
   display: flex;
 }
@@ -74,7 +72,38 @@
   background-color: #eee;
 }
 
-@media only screen and (min-width: 600px) {
+}
+
+#break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+@media only screen and (max-width: 600px) {
+
+#container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#text {
+  padding: 25px;
+  background-color: #ddd;
+}
+
+#card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#card {
+  flex-grow: 1;
+  padding: 30px;
+  border: 10px solid #ddd;
+  background-color: #eee;
+}
 
 }
 
