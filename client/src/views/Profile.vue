@@ -4,13 +4,13 @@
       <UserInfo />
     </div>
 
-    Enter or edit personal details
+    <!-- Enter or edit personal details
 
     <b-container>
       <b-row align-v="center">
-        <!-- users.json is being loaded from the public folder until the db connection to mongodb is ready -->
+         users.json is being loaded from the public folder until the db connection to mongodb is ready -->
         <!-- <user-info-card /> -->
-        <user-info-card
+        <!-- <user-info-card
           v-for="user in getDisplayUsers"
           :key="user.id"
           :name="user.name"
@@ -29,13 +29,13 @@
         last-text="Last"
         @input="paginate(currentPage)"
       ></b-pagination>
-    </b-container>
+    </b-container> -->
   </div>
 </template>
 
 <script>
 // import UserProfile from '@/components/UserProfile.vue'
-import UserInfoCard from "@/components/UserInfoCard.vue";
+// import UserInfoCard from "@/components/UserInfoCard.vue";
 import UserInfo from '@/components/UserInfo.vue'
 import { mapGetters } from "vuex";
 
@@ -51,7 +51,7 @@ export default {
     };
   },
   components: {
-    "user-info-card": UserInfoCard,
+    // "user-info-card": UserInfoCard,
     UserInfo,
   },
   computed: {

@@ -36,10 +36,11 @@ router.delete("/:id", async (req, res) => {
 router.put("/", async (req, res) => {
   const posts = await loadPostsCollection();
   const query = {email: req.body.email};
-  const update = { $set: {firstname: req.body.firstName, lastname: req.body.lastName } };
+  const update = { $set: {firstname: req.body.firstName, lastname: req.body.lastName, dob: req.body.dob } };
+  const options = {"upsert": true}
   console.log(req.body);
     
-  await posts.updateOne(query, update, function(err, res) {
+  await posts.updateOne(query, update, options, function(err, res) {
     if(err) throw err;
     console.log("1 document updtaed");
   })

@@ -3,11 +3,6 @@
   <div class = "container">
   <br />
     <h2>Latest Posts</h2>
-    <div class="create-post">
-      <label for="create-post">Say Something...</label>
-      <input type="text" id="create-post" v-model="text" placeholder="Create a post">
-      <button v-on:click="createPost">Post!</button>
-    </div>
     <hr>
     <p class="error" v-if="error">{{ error }}</p>
       <div class="post" v-for="(post) in posts"
@@ -18,7 +13,6 @@
           <h2>First Name</h2>
           <input type="text" v-model="firstName" :placeholder="[[ post.firstname ]]">
         </div>
-
         <div>
           <h2>Last Name</h2>
           <input type="text" v-model="lastName" :placeholder="[[ post.lastname ]]"> 
@@ -27,6 +21,10 @@
         <div>
           <h2>Email</h2>
           <input type="text" v-model="email" :placeholder="[[ post.email ]]">
+        </div>
+        <div>
+          <h2>Date Of Birth</h2>
+          <input type="date" v-model="dob" :placeholder="[[ post.dob ]]">
         </div>
         <div>
           <h2>Submit</h2>
@@ -51,7 +49,8 @@ export default {
       text: '',
       firstName: '',
       lastName: '',
-      email: ''
+      email: '',
+      dob: ''
     }
   },
   async created() {
@@ -71,9 +70,10 @@ export default {
         this.posts = await PostService.getPosts();
     },
     async submit(){
-      await PostService.updatePost(this.email, this.firstName, this.lastName);
+      await PostService.updatePost(this.email, this.firstName, this.lastName, this.dob);
       this.posts = await PostService.getPosts();
-      location.reload();
+      window.location.reload();
+      console.log("window reloaded");
     },
   }
 }

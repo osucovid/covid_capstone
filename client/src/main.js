@@ -6,10 +6,12 @@ import Vuex from "vuex";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
+import "leaflet-geosearch/dist/geosearch.css";
 import "./custom.css";
 import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
+// import VueFormulate from "@braid/vue-formulate";
 
 delete Icon.Default.prototype._getIconUrl;
 Icon.Default.mergeOptions({
@@ -28,6 +30,7 @@ Vue.component("l-marker", LMarker);
 import { domain, clientId } from "../auth_config.json";
 // Import the plugin here
 import { Auth0Plugin } from "./auth";
+
 // Install the authentication plugin here
 Vue.use(Auth0Plugin, {
   domain,
@@ -47,6 +50,8 @@ Vue.use(BootstrapVue);
 // optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin);
 Vue.use(Vuex);
+const VueFormulate = require("@braid/vue-formulate");
+Vue.use(VueFormulate.default);
 Vue.prototype.$store = store;
 
 // a Vue instance is required for every Vue app

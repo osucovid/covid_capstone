@@ -57,9 +57,9 @@ class PostService {
     return axios.delete(`${url}${id}`);
   }
 
-  static updatePost(email, firstName, lastName){
+  static updatePost(email, firstName, lastName, dob){
     return axios.put(url, {
-      email, firstName, lastName,
+      email, firstName, lastName, dob,
     });
   }
 }

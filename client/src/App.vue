@@ -13,6 +13,7 @@
     </div>
 
     <div class="button-block">
+      <br />
       <button
         type="button"
         v-if="!$auth.isAuthenticated"
@@ -21,7 +22,9 @@
       >
         Sign in to see personalized risk assessment
       </button>
+      <br />
       <h3 v-if="$auth.isAuthenticated">Welcome, {{ $auth.user.name }}!</h3>
+      <br />
     </div>
 
     <!-- router-view/ is the router to the Home.vue contains the dashboard from the Main.vue component located at the /components folder -->
