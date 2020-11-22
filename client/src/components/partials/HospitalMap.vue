@@ -8,8 +8,10 @@
         @update:center="centerUpdate"
         :zoom="zoom"
         :center="center"
+        ref="map"
       >
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+        <v-geosearch :options="geosearchOptions" />
         <l-marker
           :key="index"
           v-for="(hospital, index) in hospitals"
@@ -17,6 +19,8 @@
         ></l-marker>
         <!-- <l-icon :icon-size="hospital.iconSize"></l-icon> -->
       </l-map>
+      <!-- <pre class="code" v-text="address" /> -->
+      {{ address }}
     </div>
     <!-- /.row map -->
   </div>
@@ -25,6 +29,19 @@
 <script>
 import { latLng } from "leaflet";
 import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
+import { OpenStreetMapProvider } from "leaflet-geosearch";
+import VGeosearch from "vue2-leaflet-geosearch";
+
+// /* eslint-disable vue/no-unused-components */
+
+// const provider = new OpenStreetMapProvider();
+
+// const searchControl = new GeoSearchControl({
+//   provider: provider,
+// });
+
+// const map = new LMap("map");
+// map.addControl(searchControl);
 
 // var myIcon = {
 //   iconUrl: "my-icon.png",
@@ -54,13 +71,29 @@ export default {
       marker: latLng(37.7749, -122.4194),
       // icon: myIcon,
       // iconSize: [15, 15],
+      geosearchOptions: {
+        position: "topright",
+        style: "button",
+        searchLabel: "Enter address",
+        provider: new OpenStreetMapProvider(),
+      },
+      address: "",
     };
   },
   components: {
     LMap,
     LTileLayer,
     LMarker,
+    VGeosearch,
     // LIcon,
+  },
+  mounted() {
+    console.log(this);
+    this.$refs.map.mapObject.on("geosearch/showlocation", (response) => {
+      this.address = response.location.label;
+      console.log(this.address);
+      console.log(typeof this.address);
+    });
   },
   methods: {
     getLatLng: function(hospital) {

@@ -13,7 +13,7 @@
     </div>
 
     <div class="button-block">
-    <br />
+      <br />
       <button
         type="button"
         v-if="!$auth.isAuthenticated"
