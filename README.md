@@ -17,6 +17,7 @@ This version is separated into client and server folders.
 6. Install in the client folder: 
 - Vue Formulate: npm install --save @braid/vue-formulate
 - d3.js: npm install --save d3
+- leaflet: npm install leaflet vue2-leaflet --save AND npm install @types/leaflet
 7. Run Vue locally with, 'npm run serve' 
 
 Remember to run 'npm run build' before pushing!
