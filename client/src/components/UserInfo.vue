@@ -72,8 +72,6 @@ export default {
     async submit(){
       await PostService.updatePost(this.email, this.firstName, this.lastName, this.dob);
       this.posts = await PostService.getPosts();
-      window.location.reload();
-      console.log("window reloaded");
     },
   }
 }

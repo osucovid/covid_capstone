@@ -34,18 +34,18 @@
         </b-form-radio-group>
       </b-form-group>
 
-      <b-form-group id="input-group-4">
-        <b-form-checkbox-group v-model="form.mask" id="checkboxes-4">
-          <b-form-checkbox value="asympomatic"
-            >I currently do not have COVID19 symptoms.</b-form-checkbox
+      <b-form-group id="input-group-4" label="Do you currently have COVID symptoms?">
+        <b-form-radio-group v-model="form.mask" id="radio-2">
+          <b-form-radio value="asympomatic" v-model="different"
+            >I currently do not have COVID19 symptoms.</b-form-radio
           >
-          <b-form-checkbox value="symptomatic"
-            >I currently DO have COVID19 symptoms.</b-form-checkbox
+          <b-form-radio value="symptomatic" v-model="different"
+            >I currently DO have COVID19 symptoms.</b-form-radio
           >
-        </b-form-checkbox-group>
+        </b-form-radio-group>
       </b-form-group>
 
-      <b-button type="submit" variant="primary" @click="randomValue"
+      <b-button type="submit" variant="primary" @click="onSubmit"
         >Submit</b-button
       >
 
@@ -59,6 +59,7 @@
 </template>
 
 <script>
+import PostService from '../DashboardService'
 export default {
   name: "DailyForm",
   data() {
@@ -66,6 +67,7 @@ export default {
       form: {
         email: "",
         name: "",
+        mask: [],
         pLocation: null,
         checked: [],
       },
@@ -84,10 +86,11 @@ export default {
     };
   },
   methods: {
-    onSubmit(evt) {
-      evt.preventDefault();
-      alert(JSON.stringify(this.form));
+    async onSubmit(){
+      await PostService.updatePost(this.form.email, this.form.mask, this.form.pLocation, this.form.checked);
+      this.postst = await PostService.getPosts();
     },
+  
     onReset(evt) {
       evt.preventDefault();
       // Reset our form values
