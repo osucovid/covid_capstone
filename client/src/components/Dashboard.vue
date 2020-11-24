@@ -48,40 +48,6 @@
       </b-card-group>
       <br />
 
- <form>
-
-  <!--- Input section for various health conditions --->
-  <input type="checkbox" id="condition1">
-  <label for="condition1"> I have Cancer</label><br>
-
-  <input type="checkbox" id="condition2">
-  <label for="condition2"> I have Chronic Kidney Disease</label><br>
-
-  <input type="checkbox" id="condition3">
-  <label for="condition3"> I have COPD</label><br>
-
-  <input type="checkbox" id="condition4">
-  <label for="condition4"> I have Heart Condition(s)</label><br>
-
-  <input type="checkbox" id="condition5">
-  <label for="condition5"> I am Immunocompromised</label><br>
-
-  <input type="checkbox" id="condition6">
-  <label for="condition6"> I am Obese</label><br>
-
-  <input type="checkbox" id="condition7">
-  <label for="condition7"> I have Sickle Cell Disease</label><br>
-
-  <input type="checkbox" id="condition8">
-  <label for="condition8"> I am a Smoker</label><br>
-
-  <input type="checkbox" id="condition9">
-  <label for="condition9"> I have Type 2 Diabetes</label><br>
-
-</form>
-
-<div id="bubbles"></div>
-
       <br />
     </div>
   </div>
