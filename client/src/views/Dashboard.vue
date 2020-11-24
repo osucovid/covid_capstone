@@ -5,6 +5,8 @@
 
     <!-- Main is Main.vue which contains the Dashboard with the graph and Risk Assessment -->
     <Dashboard />
+    <MaskWearing />
+    <MedicalConditions />
     <!-- <Map /> -->
     <RiskStatus />
     <JsonMap2 />
@@ -20,12 +22,16 @@ import Dashboard from "@/components/Dashboard.vue";
 import RiskStatus from "@/components/RiskStatus.vue";
 // import Map from "@/components/Map.vue";
 import JsonMap2 from "@/components/JsonMap2.vue";
+import MaskWearing from "@/components/MaskWearing.vue";
+import MedicalConditions from "@/components/MedicalConditions.vue";
 
 export default {
   name: "Home",
   components: {
     // HelloWorld
     Dashboard,
+    MaskWearing,
+    MedicalConditions,
     RiskStatus,
     // Map,
     JsonMap2,
