@@ -13,6 +13,9 @@
   <input type="range" min="20" max="125" id="radius">
 
 </p>
+
+<div id="age_circle"></div>
+
       <br />
   </div>
 
@@ -31,7 +34,7 @@ var width = 600;
 var height = 300;
 
 // append svg to body, then circle to svg 
-var holder = d3.select("body")
+var holder = d3.select("#age_circle")
       .append("svg")
       .attr("width", width)    
       .attr("height", height); 
