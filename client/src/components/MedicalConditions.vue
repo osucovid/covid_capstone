@@ -1,7 +1,7 @@
 <template>
 <div>
  <form>
-
+  <h2>Do you have any of the following health conditions?</h2>
   <!--- Input section for various health conditions --->
   <input type="checkbox" id="condition1">
   <label for="condition1"> I have Cancer</label><br>
