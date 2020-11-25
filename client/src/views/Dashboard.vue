@@ -9,7 +9,7 @@
     <MedicalConditions />
     <Age />
     <!-- <Map /> -->
-    <RiskStatus />
+    <!-- <RiskStatus /> -->
     <JsonMap2 />
   </div>
 </template>
@@ -20,12 +20,12 @@
 
 // Main contains the main dashbord
 import Dashboard from "@/components/Dashboard.vue";
-import RiskStatus from "@/components/RiskStatus.vue";
+// import RiskStatus from "@/components/RiskStatus.vue";
 // import Map from "@/components/Map.vue";
 import JsonMap2 from "@/components/JsonMap2.vue";
 import MaskWearing from "@/components/MaskWearing.vue";
 import Age from "@/components/Age.vue";
-import MedicalConditions from "@/components/MedicalConditions.vue"; 
+import MedicalConditions from "@/components/MedicalConditions.vue";
 
 export default {
   name: "Home",
@@ -35,7 +35,7 @@ export default {
     MaskWearing,
     MedicalConditions,
     Age,
-    RiskStatus,
+    // RiskStatus,
     // Map,
     JsonMap2,
   },
