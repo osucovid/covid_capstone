@@ -12,13 +12,18 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <!-- <b-nav-item href="#">Dashboard</b-nav-item> -->
-          <b-nav-item><router-link to="/dashboard">Dashboard</router-link></b-nav-item>
           <b-nav-item
-            ><router-link to="/todaysdata"
-              >Today's Assessment Data</router-link
-            ></b-nav-item
+            ><router-link to="/dashboard">Dashboard</router-link></b-nav-item
+          >
+          <b-nav-item
+            ><router-link to="/mydata">My Data</router-link></b-nav-item
           >
           <!-- <b-nav-item href="#">About</b-nav-item> -->
+          <b-nav-item
+            ><router-link to="/newuserform"
+              >New User Form (Linked Here for Development)</router-link
+            ></b-nav-item
+          >
           <b-nav-item><router-link to="/about">About</router-link></b-nav-item>
         </b-navbar-nav>
 
@@ -59,7 +64,11 @@
                 >
               </div>
             </b-dropdown-item>
-            <b-dropdown-item href="#"><router-link to="/settings">Settings</router-link></b-dropdown-item>
+            <b-dropdown-item href="#"
+              ><router-link to="/settings"
+                >Settings</router-link
+              ></b-dropdown-item
+            >
             <b-dropdown-item href="#">
               <div v-if="!$auth.loading">
                 <!-- show login when not authenticated -->
