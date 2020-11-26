@@ -17,7 +17,7 @@
   <br />
   <div id = "container">
   <div id = "text">
-  <h2>Did you know?</h2>
+  <h2>Did You know?</h2>
 
   <div id = "card-container">
   <div id = "card">
