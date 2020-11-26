@@ -34,7 +34,10 @@
         </b-form-radio-group>
       </b-form-group>
 
-      <b-form-group id="input-group-4" label="Do you currently have COVID symptoms?">
+      <b-form-group
+        id="input-group-4"
+        label="Do you currently have COVID symptoms?"
+      >
         <b-form-radio-group v-model="form.mask" id="radio-2">
           <b-form-radio value="asympomatic" v-model="different"
             >I currently do not have COVID19 symptoms.</b-form-radio
@@ -54,12 +57,11 @@
     <b-card class="mt-3" header="Form Data Result">
       <pre class="m-0">{{ form }}</pre>
     </b-card>
-    <div id="mapContainer"></div>
   </div>
 </template>
 
 <script>
-import PostService from '../DashboardService'
+import PostService from "../DashboardService";
 export default {
   name: "DailyForm",
   data() {
@@ -86,11 +88,16 @@ export default {
     };
   },
   methods: {
-    async onSubmit(){
-      await PostService.updatePost(this.form.email, this.form.mask, this.form.pLocation, this.form.checked);
+    async onSubmit() {
+      await PostService.updatePost(
+        this.form.email,
+        this.form.mask,
+        this.form.pLocation,
+        this.form.checked
+      );
       this.postst = await PostService.getPosts();
     },
-  
+
     onReset(evt) {
       evt.preventDefault();
       // Reset our form values
