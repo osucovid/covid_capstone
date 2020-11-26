@@ -47,8 +47,11 @@ body {
   margin-bottom: 0.75em;
 }
 .formulate-input .formulate-input-element {
-  max-width: 20em;
-  margin-bottom: 0.1em;
+  /* max-width: 20em; */
+  max-width: 80%;
+  margin: 0.1em 0 0.1em 0;
+  margin: 0 auto;
+  /* margin-bottom: 0.1em; */
 }
 .formulate-input .formulate-input-help {
   color: #6d6d6d;

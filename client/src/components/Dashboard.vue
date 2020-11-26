@@ -14,8 +14,14 @@
       <br />
       <h2>Your Risk Assessment</h2>
       <br />
+
+      <div class="risk_assess">
+        <RiskStatusCard />
+        <RiskStatusCard />
+        <RiskStatusCard />
+      </div>
       <b-card-group deck>
-        <b-card bg-variant="light" title="Risk Status" img-alt="Image" img-top>
+        <!-- <b-card bg-variant="light" title="Risk Status" img-alt="Image" img-top>
           <b-card-text>
             This is a wider card with supporting text below as a natural lead-in
             to additional content. This content is a little bit longer.
@@ -23,9 +29,9 @@
           <template v-slot:footer>
             <small class="text-muted">Last updated 3 mins ago</small>
           </template>
-        </b-card>
+        </b-card> -->
 
-        <b-card bg-variant="light" title="Title" img-alt="Image" img-top>
+        <!-- <b-card bg-variant="light" title="Title" img-alt="Image" img-top>
           <b-card-text>
             This card has supporting text below as a natural lead-in to
             additional content.
@@ -33,9 +39,9 @@
           <template v-slot:footer>
             <small class="text-muted">Last updated 3 mins ago</small>
           </template>
-        </b-card>
+        </b-card> -->
 
-        <b-card bg-variant="light" title="Title" img-alt="Image" img-top>
+        <!-- <b-card bg-variant="light" title="Title" img-alt="Image" img-top>
           <b-card-text>
             This is a wider card with supporting text below as a natural lead-in
             to additional content. This card has even longer content than the
@@ -44,34 +50,34 @@
           <template v-slot:footer>
             <small class="text-muted">Last updated 3 mins ago</small>
           </template>
-        </b-card>
+        </b-card> -->
       </b-card-group>
       <br />
 
       <br />
     </div>
   </div>
-
 </template>
 
 <script src="http://d3js.org/d3.v6.min.js" charset="utf-8"></script>
 
 <script>
-import * as d3 from 'd3'
+import * as d3 from "d3";
+import RiskStatusCard from "@/components/cards/RiskStatusCard.vue";
+
 export default {
-  data () {
-    return {}
+  data() {
+    return {};
   },
-  mounted () {
-
-  },
+  mounted() {},
   name: "Dashboard",
+  components: {
+    RiskStatusCard,
+  },
 };
-
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
 
 <style>
 .chart div {
@@ -85,5 +91,8 @@ export default {
 .container-chart {
   /* width: 50%; */
   margin: auto;
+}
+.risk_assess {
+  display: flex;
 }
 </style>
