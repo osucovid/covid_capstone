@@ -4,7 +4,7 @@
   <div id = "text">
     <h1>About Our Website</h1>
 
-      <p>Our project's goal is to inform users about their COVID-19 risk and give them feedback about how they might lower it. We hope to distill data from numerous reputable sources, including public health departments, academics, and researchers.</p>
+      <p>Our project's goal is to inform users about their COVID-19 risk and give them feedback about how they might lower it. We distill data from numerous reputable sources, including public health departments, academics, and researchers.</p>
 
       <p>This app was created for Oregon State University's CS467 capstone course.</p>
 
@@ -53,7 +53,37 @@
   <div id = "container">
   <div id = "text">
   <h1>Helpful Resources</h1>
-  <p>To list here...</p>
+  <div id = "card-container">
+  <div id = "card">
+    <h2>Data Sources Consulted</h2>
+      <ul>
+        <li><a href="https://c3.ai/products/c3-ai-covid-19-data-lake/">C3 AI COVID-19 Data Lake</a></li>
+        <li><a href="https://github.com/nychealth/coronavirus-data/">NYC Department of Health and Mental Hygiene - Github</a></li>
+        <li><a href="https://www.nytimes.com/interactive/2020/07/17/upshot/coronavirus-face-mask-map.html">The New York Times - "A Detailed Map of Who Is Wearing Masks in the U.S."</a></li>
+        <li><a href="https://github.com/CSSEGISandData/COVID-19">Johns Hopkins University - COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE)</a></li>
+        <li><a href="https://www.npr.org/sections/health-shots/2020/09/01/816707182/map-tracking-the-spread-of-the-coronavirus-in-the-u-s">NPR - "Coronavirus Is Surging: How Severe Is Your State's Outbreak?"</a></li>
+        <li><a href="https://covid19.gleamproject.org/mobility">MOBS Lab - "Mobility, commuting, and contact patterns across the United States during the COVID-19 outbreak"</a></li>
+        <li><a href="https://github.com/nytimes/covid-19-data/tree/master/mask-use">The New York Times - Mask-Wearing Survey Data Github Repository</a></li>
+        <li><a href="https://covid19risk.biosci.gatech.edu/?fbclid=IwAR12N-iq8qvN1mK76391IoQY2dI5_v4pbUlyQpQ_WCCKdpIQJotSa9RMQZo">Georgia Institute of Technology - COVID-19 Event Risk Assessment Planning Tool</a></li>
+      </ul>
+
+    <h2>Research Articles Consulted</h2>
+    <ul>
+      <li><a href="https://www.healthaffairs.org/doi/full/10.1377/hlthaff.2020.00818">Health Affairs: "Community Use Of Face Masks And COVID-19: Evidence From A Natural Experiment..."</a></li>
+      <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7314683/">Elsevier Public Health Emergency Collection: "Mask use during COVID-19: A risk adjusted strategy"</a></li>
+      <li><a href="https://www.sciencedirect.com/science/article/pii/S2468042720300117">Infectious Disease Modelling: "To mask or not to mask: Modeling the potential for face mask use by the general public..."</a></li>
+    </ul>
+  </div>
+  <div id = "card">
+  <h2>Health Recommendations</h2>
+    <ul>
+      <li><a href="https://www1.nyc.gov/site/doh/covid/covid-19-prevention-and-care.page">NYC Health Department - "COVID-19: Prevention and Groups at Higher Risk"</a></li>
+      <li><a href="https://www.mayoclinic.org/diseases-conditions/coronavirus/in-depth/coronavirus-mask/art-20485449">Mayo Clinic = COVID-19: How much protection do face masks offer?</a></li>
+      <li><a href="https://www.cdc.gov/coronavirus/2019-ncov/need-extra-precautions/people-with-medical-conditions.html">Centers for Disease Control and Prevention - People with Certain Medical Conditions</a></li>
+    </ul>
+
+  </div>
+  </div>
   </div>
   </div>
 
@@ -63,7 +93,22 @@
   <div id = "container">
   <div id = "text">
   <h1>Website Credits</h1>
-  <p>To list here...</p>
+
+  <div id = "card-container">
+  <div id = "card">
+
+  <h2>Icons</h2>
+  <ul>
+    <li><a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
+  </ul>
+  </div>
+
+  <div id = "card">
+  <h2>Another Category</h2>
+  <p>If needed...</p>
+  </div>
+  </div>
+
   </div>
   </div>
   </div>
@@ -76,6 +121,11 @@
 </script>
 
 <style>
+
+ul {
+  display: inline-block;
+  text-align: left;
+}
 
 @media only screen and (min-width: 600px) {
 
