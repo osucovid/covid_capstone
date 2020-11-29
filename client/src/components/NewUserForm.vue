@@ -33,7 +33,7 @@
           <!-- End Personal Details -->
 
           <!-- Start Basic Details Form -->
-          <div class="basic_details_form">
+          <div class="basic_details_form inputs">
             <h2>Basic Details</h2>
             <p>
               Add form elements related to travel, activities, social distancing
@@ -66,14 +66,16 @@
                 label="How often do you wear a mask?"
                 :options="{
                   0: 'Never',
-                  25: '25%',
-                  50: '50%',
+                  25: '25% of the time',
+                  50: '50% of the time',
+                  75: '75% of the time',
+                  100: '100% of the time',
                 }"
                 validation="required"
               />
             </b-card>
             <formulate-input
-              name="covid_symptom_percentage"
+              name="covid_symptom_check"
               type="radio"
               label="Do you currently have COVID19 symptoms?"
               :options="{
@@ -82,11 +84,28 @@
               }"
               validation="required"
             />
+            <formulate-input
+              name="health_conditions_check"
+              type="checkbox"
+              label="Do you have any of the following health conditions?"
+              :options="{
+                cancer: 'I have Cancer',
+                ckd: 'I have Chronic Kidney Disease',
+                copd: 'I have COPD',
+                heart: 'I have Heart Condition(s)',
+                immuno: 'I am Immunocompromised',
+                obsese: 'I am Obese',
+                scd: 'I have Sickle Cell Disease',
+                smoker: 'I am a Smoker',
+                type2d: 'I have Type 2 Diabetes',
+                none: 'I have no health conditions',
+              }"
+            />
           </div>
           <!-- End Basic Details Form -->
 
           <!-- Start Workplace Form -->
-          <div class="employed_form">
+          <div class="employed_form inputs">
             <b-button v-b-toggle.collapse-1 variant="primary"
               >Click here if you are currently employed</b-button
             >
@@ -158,13 +177,18 @@ export default {
       formValues: {},
     };
   },
+  methods: {
+    seeJson(payload) {
+      this.json = payload;
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 .inputs {
   background-color: white;
-  max-width: 20em;
+  max-width: 42em;
   padding: 2em;
   margin: 6.5em auto 2em auto;
   border-radius: 0.25em;

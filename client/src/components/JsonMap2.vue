@@ -63,7 +63,10 @@ export default {
   mounted: function() {
     //axios returns a promise, not the data
     axios.get("https://data.sfgov.org/resource/dtit-7gp4.json").then((r) => {
-      this.hospitals = r.data;
+      this.hospitals = r.data.map((r) => {
+        r.iconSize = this.normalIcon;
+        return r;
+      });
     });
     //to filter out only public hospitals
     // axios.get("https://data.sfgov.org/resource/dtit-7gp4.json").then((r) => {
