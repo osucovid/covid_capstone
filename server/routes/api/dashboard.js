@@ -10,8 +10,6 @@ router.get("/", async (req, res) => {
   //send an array of posts in the db
 
   //{query to find text that matches but leave it empty to recieve all as an array}
-  console.log(req.body);
-  const query = {email: req.body.email}
   console.log("array ready to send");
   res.send(await posts.find({}).toArray());
 });
@@ -37,16 +35,11 @@ router.delete("/:id", async (req, res) => {
 
 router.put("/", async (req, res) => {
   const posts = await loadPostsCollection();
+  console.log(req.body.form);
 
-  const query = {email: req.body.formValues.email};
-  const update = { $set: {mask: req.body.formValues.mask_wearing_percentage, 
-    symptom: req.body.formValues.covid_symptom_percentage, 
-    workplace: req.body.formValues.workplace_type,
-    contactFreq: req.body.formValues.contact_frequency,
-    contactType: req.body.formValues.contact_type } };
-  const options = {"upsert": true};
-  console.log(req.body.formValues);
-
+  const query = {email: req.body.form.email};
+  const update = { $set: {mask: req.body.form.mask, pLocation: req.body.form.pLocation, checked: req.body.form.checked } };
+  const options = {"upsert": true}
     
   await posts.updateOne(query, update, options, function(err, res) {
     if(err) throw err;

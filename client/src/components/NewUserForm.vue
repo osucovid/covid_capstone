@@ -16,14 +16,20 @@
 
           <!-- Start Personal Details -->
           <formulate-input
+            name="name"
+            type="text"
+            label="Your name"
+            placeholder="Pre-filled with data from Auth0 or remove entirely?"
+            validation="required"
+          />
+          <formulate-input
             name="email"
             type="email"
             label="Email address"
             help="We'll never share your email with anyone else."
-            :placeholder="[[ $auth.user.email ]]"
+            placeholder="Pre-filled with data from Auth0 or remove entirely?"
             validation="required|email"
           />
-
           <!-- End Personal Details -->
 
           <!-- Start Basic Details Form -->
@@ -131,9 +137,9 @@
           </div>
           <!-- End Workplace Form -->
 
-         <!-- <pre class="code" v-text="formValues" /> -->
+          <pre class="code" v-text="formValues" />
 
-          <formulate-input type="submit" label="Submit Form" v-on:click="submit"/>
+          <formulate-input type="submit" label="Submit Form" />
         </formulate-form>
       </article>
     </div>
@@ -141,29 +147,17 @@
 </template>
 
 <script>
-import PostService from '../DashboardService'
 export default {
   name: "NewUserForm",
   components: {},
+  props: {
+    // form,
+  },
   data() {
     return {
-      posts: [],
       formValues: {},
     };
   },
-  async created() {
-    try {
-      this.posts = await PostService.getPosts();
-    } catch(err) {
-      this.error = err.message;
-    }
-  },
-  methods: {
-    async submit(){
-      await PostService.updatePost(this.formValues);
-      this.posts = await PostService.getPosts();
-    }
-  }
 };
 </script>
 
