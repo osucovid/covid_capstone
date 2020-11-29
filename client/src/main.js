@@ -13,10 +13,12 @@ import "leaflet/dist/leaflet.css";
 import { Icon } from "leaflet";
 // import VueFormulate from "@braid/vue-formulate";
 
+// delete Icon.Default.prototype._getIconUrl;
 delete Icon.Default.prototype._getIconUrl;
 Icon.Default.mergeOptions({
   iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
   iconUrl: require("leaflet/dist/images/marker-icon.png"),
+  // iconUrl: require("@/assets/h-marker.svg"),
   shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
 });
 

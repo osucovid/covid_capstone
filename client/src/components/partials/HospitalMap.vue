@@ -1,8 +1,9 @@
 <template>
   <div>
     <div class="row map">
-      <!-- <h2>Center is {{ currentCenter }}, zoom level is {{ currentZoom }}</h2> -->
+      <h2>Center is {{ currentCenter }}, zoom level is {{ currentZoom }}</h2>
       <!-- {{ hospitals }} -->
+
       <l-map
         @update:zoom="zoomUpdate"
         @update:center="centerUpdate"
@@ -16,8 +17,11 @@
           :key="index"
           v-for="(hospital, index) in hospitals"
           :lat-lng="getLatLng(hospital)"
-        ></l-marker>
-        <!-- <l-icon :icon-size="hospital.iconSize"></l-icon> -->
+        >
+          <!-- delete popup later -->
+          <!-- <l-popup :content="hospital"></l-popup> -->
+          <l-icon :icon-url="icon" :icon-size="hospital.iconSize" />
+        </l-marker>
       </l-map>
       <!-- <pre class="code" v-text="address" /> -->
       {{ address }}
@@ -27,10 +31,13 @@
 </template>
 
 <script>
+// import L from "leaflet";
 import { latLng } from "leaflet";
-import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
+import { LMap, LTileLayer, LMarker, LIcon } from "vue2-leaflet";
+// import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
 import VGeosearch from "vue2-leaflet-geosearch";
+import hospitalMarker from "@/assets/h-marker.svg";
 
 // /* eslint-disable vue/no-unused-components */
 
@@ -78,6 +85,17 @@ export default {
         provider: new OpenStreetMapProvider(),
       },
       address: "",
+      icon: hospitalMarker,
+      iconSize: [15, 15],
+      // icon: L.icon({
+      //   iconUrl: "src/assets/h-marker.svg",
+      //   iconSize: [38, 95],
+      //   iconAnchor: [22, 94],
+      // popupAnchor: [-3, -76],
+      // shadowUrl: "my-icon-shadow.png",
+      // shadowSize: [68, 95],
+      // shadowAnchor: [22, 94],
+      // }),
     };
   },
   components: {
@@ -85,7 +103,8 @@ export default {
     LTileLayer,
     LMarker,
     VGeosearch,
-    // LIcon,
+    LIcon,
+    // LPopup,
   },
   mounted() {
     console.log(this);
@@ -112,6 +131,6 @@ export default {
 
 <style lang="scss" scoped>
 .map {
-  height: 95vh;
+  height: 100vh;
 }
 </style>

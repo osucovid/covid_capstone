@@ -27,7 +27,8 @@
           <b-nav-item><router-link to="/about">About</router-link></b-nav-item>
         </b-navbar-nav>
 
-        <b-navbar-nav class="ml-auto">
+        <!-- Search Function Omitted -->
+        <!-- <b-navbar-nav class="ml-auto">
           <b-nav-form @submit.prevent="search">
             <b-form-input
               size="sm"
@@ -39,7 +40,8 @@
               >Search</b-button
             >
           </b-nav-form>
-        </b-navbar-nav>
+        </b-navbar-nav> -->
+
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-item-dropdown right>

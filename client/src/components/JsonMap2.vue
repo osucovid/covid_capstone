@@ -4,7 +4,7 @@
 
     <div class="row">
       <div class="col-12">
-        <h1 class="text-center text-danger">Hospital List</h1>
+        <h1 class="text-center text-danger">Hospital Listx</h1>
       </div>
     </div>
     <div class="row">
@@ -63,7 +63,10 @@ export default {
   mounted: function() {
     //axios returns a promise, not the data
     axios.get("https://data.sfgov.org/resource/dtit-7gp4.json").then((r) => {
-      this.hospitals = r.data;
+      this.hospitals = r.data.map((r) => {
+        r.iconSize = this.normalIcon;
+        return r;
+      });
     });
     //to filter out only public hospitals
     // axios.get("https://data.sfgov.org/resource/dtit-7gp4.json").then((r) => {
