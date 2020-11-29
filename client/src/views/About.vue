@@ -1,7 +1,7 @@
 <template>
   <div class="about">
-    <Guide />
     <Resources />
+    <Guide />
   </div>
 </template>
 

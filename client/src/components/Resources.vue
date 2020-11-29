@@ -1,15 +1,14 @@
 <template>
 <div>
-  <br />
   <div id = "container">
   <div id = "text">
     <h1>About Our Website</h1>
 
-      <p>Our project's goal is to <strong>inform users about their COVID-19 risk</strong> and <strong>give them feedback about how they might lower it</strong>. We distill data from numerous reputable sources, including public health departments, academics, and researchers.</p>
+      <p>Our project's goal is to inform users about their COVID-19 risk and give them feedback about how they might lower it. We distill data from numerous reputable sources, including public health departments, academics, and researchers.</p>
 
       <p>This app was created for Oregon State University's CS467 capstone course.</p>
 
-      <p>On this page, you can learn more about the pandemic and resources for further study. Note that this page was last updated in December 2020.</p>
+      <p>On this page, you can learn more about the pandemic and resources for further study.</p>
 
   </div>
   </div>
@@ -18,33 +17,32 @@
   <br />
   <div id = "container">
   <div id = "text">
-  <h2>Did You Know?</h2>
+  <h2>Did You know?</h2>
 
   <div id = "card-container">
   <div id = "card">
     <img
-      :src="require('../assets/coronavirus.svg')"
+      :src="require('../assets/form-icon.svg')"
       :width="75"
     />
-    <p>There are many coronaviruses out there and <strong>the majority are harmless to humans</strong>. Only four types are known to cause colds and two others create severe lung infections.</p>
+    <p>Fact #1</p>
   </div>
 
   <div id = "card">
     <img
-      :src="require('../assets/face-mask.svg')"
+      :src="require('../assets/bar-chart.svg')"
       :width="75"
     />
-    <p>Each month, 129 billion face masks and 65 billion gloves are used globally. If the world's masks manufactured already were stitched with the masks projected to be produced, <strong>we could cover the landmass of Switzerland</strong>.</p>
+    <p>Fact #2</p>
   </div>
 
   <div id = "card">
     <img
-      :src="require('../assets/inhaler.svg')"
+      :src="require('../assets/stethoscope.svg')"
       :width="75"
     />
-    <p><strong>Asthma is not one of the top chronic health problems</strong> found in patients who died from COVID-19. Only five percent of deaths were of patients who had asthma.</p>
+    <p>Fact #3</p>
   </div>
-
   </div>
   </div>
 </div>
@@ -79,18 +77,11 @@
   <div id = "card">
   <h2>Health Recommendations</h2>
     <ul>
-      <li><a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019">World Health Organization - Advice for the public, Country and technical guidance</a></li>
       <li><a href="https://www1.nyc.gov/site/doh/covid/covid-19-prevention-and-care.page">NYC Health Department - "COVID-19: Prevention and Groups at Higher Risk"</a></li>
-      <li><a href="https://www.mayoclinic.org/diseases-conditions/coronavirus/in-depth/coronavirus-mask/art-20485449">Mayo Clinic - COVID-19: How much protection do face masks offer?</a></li>
+      <li><a href="https://www.mayoclinic.org/diseases-conditions/coronavirus/in-depth/coronavirus-mask/art-20485449">Mayo Clinic = COVID-19: How much protection do face masks offer?</a></li>
       <li><a href="https://www.cdc.gov/coronavirus/2019-ncov/need-extra-precautions/people-with-medical-conditions.html">Centers for Disease Control and Prevention - People with Certain Medical Conditions</a></li>
     </ul>
 
-  <h2>Did You Know Credits</h2>
-    <ul>
-      <li><a href="https://www.nytimes.com/2020/04/16/health/coronavirus-asthma-risk.html">The New York Times - "Asthma Is Absent Among Top Covid-19 Risk Factors, Early Data Shows"</a></li>
-      <li><a href="https://www.doctorswithoutborders.org/covid19#What%20is%20a%20coronavirus?">Doctors Without Borders - COVID-19: Our Global Response</a></li>
-      <li><a href="https://www.scientificamerican.com/article/covid-19-has-worsened-the-ocean-plastic-pollution-problem/">Scientific American - "COVID-19 Has Worsened the Ocean Plastic Pollution Problem"</a></li>
-    </ul>
   </div>
   </div>
   </div>
@@ -108,14 +99,13 @@
 
   <h2>Icons</h2>
   <ul>
-    <li>By <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
+    <li><a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
   </ul>
   </div>
 
   <div id = "card">
-  <h2>Share on Social Networks</h2>
-  <p>Like our site? Share it: </p>
-  <share-it />
+  <h2>Another Category</h2>
+  <p>If needed...</p>
   </div>
   </div>
 
@@ -125,16 +115,10 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import shareIt from 'vue-share-it';
-
-Vue.use(shareIt);
-
   export default {
     name: 'Resources'
   }
 </script>
-
 
 <style>
 
@@ -201,7 +185,6 @@ ul {
   border: 10px solid #ddd;
   background-color: #eee;
 }
-
 
 }
 
