@@ -19,7 +19,7 @@
           :lat-lng="getLatLng(hospital)"
         >
           <!-- delete popup later -->
-          <l-popup :content="hospital"></l-popup>
+          <!-- <l-popup :content="hospital"></l-popup> -->
           <l-icon :icon-url="icon" :icon-size="hospital.iconSize" />
         </l-marker>
       </l-map>
@@ -33,7 +33,7 @@
 <script>
 // import L from "leaflet";
 import { latLng } from "leaflet";
-import { LMap, LTileLayer, LMarker, LIcon, LPopup } from "vue2-leaflet";
+import { LMap, LTileLayer, LMarker, LIcon } from "vue2-leaflet";
 // import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
 import VGeosearch from "vue2-leaflet-geosearch";
@@ -104,7 +104,7 @@ export default {
     LMarker,
     VGeosearch,
     LIcon,
-    LPopup,
+    // LPopup,
   },
   mounted() {
     console.log(this);
