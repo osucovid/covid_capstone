@@ -26,22 +26,9 @@ class PostService {
   //         }
   //     })
   // }
-  static getPosts() {
-    return new Promise((resolve, reject) => {
-      axios
-        .get(url)
-        .then((res) => {
-          const data = res.data;
-          resolve(
-            data.map((post) => ({
-              ...post,
-              createdAt: new Date(post.createdAt),
-            }))
-          );
-        })
-        .catch((err) => {
-          reject(err);
-        });
+  static getPosts(email) {
+    return axios.get(url, {
+      email,
     });
   }
 
@@ -57,9 +44,9 @@ class PostService {
     return axios.delete(`${url}${id}`);
   }
 
-  static updatePost(email, mask, pLocation, checked){
+  static updatePost(formValues){
     return axios.put(url, {
-      email, mask, pLocation, checked,
+      formValues,
     });
   }
 }
