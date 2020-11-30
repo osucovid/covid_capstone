@@ -29,6 +29,15 @@
             placeholder="Pre-filled with data from Auth0 or remove entirely?"
             validation="required|email"
           />
+          <div>
+            <input type="text" v-model="location" />
+
+            <ul>
+              <li v-for="(result, i) in searchResults" :key="i">
+                {{ result }} // list of all places
+              </li>
+            </ul>
+          </div>
           <formulate-input
             label="How old are you?"
             type="range"
@@ -496,12 +505,55 @@ export default {
   props: {},
   data() {
     return {
-      formValues: {},
+      formValues: {
+        name: "Sunghoon Cho",
+        age: "27",
+      },
+      location: "",
+      searchResults: [],
+      service: null,
     };
   },
   methods: {
     seeJson(payload) {
       this.json = payload;
+    },
+    MapsInit() {
+      this.service = new window.google.maps.places.AutocompleteService();
+    },
+    displaySuggestions(predictions, status) {
+      if (status !== window.google.maps.places.PlacesServiceStatus.OK) {
+        this.searchResults = [];
+        return;
+      }
+      this.searchResults = predictions.map(
+        (prediction) => prediction.description
+      );
+    },
+  },
+  metaInfo() {
+    return {
+      script: [
+        {
+          src: `https://maps.googleapis.com/maps/api/js?key=<YOUR_API_KEY>&libraries=places`,
+          async: true,
+          defer: true,
+          callback: () => this.MapsInit(), // will declare it in methods
+        },
+      ],
+    };
+  },
+  watch: {
+    location(newValue) {
+      if (newValue) {
+        this.service.getPlacePredictions(
+          {
+            input: this.location,
+            types: ["(cities)"],
+          },
+          this.displaySuggestions
+        );
+      }
     },
   },
 };
