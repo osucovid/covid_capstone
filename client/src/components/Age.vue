@@ -10,8 +10,7 @@
       Age = <span id="radvalue">…</span>
   </label>
 
-  <input type="range" min="20" max="125" id="radius">
-
+  <input type="range" min="20" max="125" id="radius" >
 </p>
 
 <div id="age_circle"></div>
@@ -25,9 +24,24 @@
 
 <script>
 import * as d3 from 'd3'
+import PostService from '../DashboardService';
 export default {
   data () {
-    return {}
+    return {
+      posts: ''
+    }
+  },
+  async created(){
+    try{
+      let values = [];
+      values = await PostService.getPosts();
+      let i;
+      for(i = 0; i < values.length; i++){
+        if (values[i].email == this.$auth.user.email){
+          this.posts = values[i];
+        }
+      }
+    } catch(err){}
   },
   mounted () {
 var width = 600;

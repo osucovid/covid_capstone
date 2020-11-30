@@ -26,7 +26,7 @@
             type="email"
             label="Email address"
             help="We'll never share your email with anyone else."
-            placeholder="Pre-filled with data from Auth0 or remove entirely?"
+            :placeholder="[[ $auth.user.name ]]"
             validation="required|email"
           />
           <formulate-input
@@ -435,7 +435,7 @@
               />
               <formulate-input
                 name="travel_details_social_distancing"
-                type="checkbox"
+                type="radio"
                 label="During your travels, did you practice social distancing (maintain a distance of 6 feet)"
                 :options="{
                   yes: 'Yes',
@@ -445,7 +445,7 @@
               />
               <formulate-input
                 name="travel_details_wear_mask"
-                type="checkbox"
+                type="radio"
                 label="During your travels, did you wear a cloth face covering"
                 :options="{
                   yes: 'Yes',
@@ -455,7 +455,7 @@
               />
               <formulate-input
                 name="travel_details"
-                type="checkbox"
+                type="radio"
                 label="During your travels, did you wash your hands frequently"
                 :options="{
                   yes: 'Yes',
@@ -483,26 +483,55 @@
 
           <pre class="code" v-text="formValues" />
 
-          <formulate-input type="submit" label="Submit Form" />
+            <input type="text" v-model="email" :placeholder="[[posts]]">
+
+          <formulate-input type="submit" label="Submit Form" v-on:click="submit"/>
         </formulate-form>
       </article>
     </div>
   </div>
 </template>
 <script>
+import PostService from '../DashboardService'
 export default {
   name: "NewUserForm",
   components: {},
   props: {},
   data() {
     return {
+      email: "anishreddy82@gmail.com",
+      posts: '',
+      newPosts: [],
       formValues: {},
     };
+  },
+  async created(){
+    try{
+      let values = []
+      values = await PostService.getPosts();
+      let i;
+      for(i = 0; i < values.length; i++){
+        if (values[i].email == this.$auth.user.email){
+          this.posts = values[i];
+        }
+      }
+    } catch(err){
+      this.error = err.message;
+    }
   },
   methods: {
     seeJson(payload) {
       this.json = payload;
     },
+    async createPost(){
+      await PostService.insertPost(this.text);
+      this.posts = await PostService.getPosts();
+    },
+    async submit(){
+      await PostService.updatePost(this.formValues);
+      this.posts = await PostService.getPosts();
+      // this.posts = await PostService.getPosts();
+    }
   },
 };
 </script>

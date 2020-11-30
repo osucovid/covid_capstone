@@ -14,6 +14,12 @@ router.get("/", async (req, res) => {
   res.send(await posts.find({}).toArray());
 });
 
+// router.get("/", async(req, res) => {
+//   const posts = await loadPostsCollection();
+//   console.log(req.body.email);
+//   res.send(await posts.find({}).toArray());
+// })
+
 //add posts
 router.post("/", async (req, res) => {
   const posts = await loadPostsCollection();
@@ -35,10 +41,10 @@ router.delete("/:id", async (req, res) => {
 
 router.put("/", async (req, res) => {
   const posts = await loadPostsCollection();
-  console.log(req.body.form);
+  console.log(req.body);
 
   const query = {email: req.body.form.email};
-  const update = { $set: {mask: req.body.form.mask, pLocation: req.body.form.pLocation, checked: req.body.form.checked } };
+  const update = { $set: {form: req.body.form } };
   const options = {"upsert": true}
     
   await posts.updateOne(query, update, options, function(err, res) {
