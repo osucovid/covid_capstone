@@ -18,7 +18,7 @@
             name="name"
             type="text"
             label="Your name"
-            placeholder="Pre-filled with data from Auth0 or remove entirely?"
+            placeholder="Your name"
             validation="required"
           />
           <formulate-input
@@ -26,17 +26,37 @@
             type="email"
             label="Email address"
             help="We'll never share your email with anyone else."
-            placeholder="Pre-filled with data from Auth0 or remove entirely?"
+            placeholder="Your address"
             validation="required|email"
           />
-          <div>
-            <input type="text" v-model="location" />
-
-            <ul>
-              <li v-for="(result, i) in searchResults" :key="i">
-                {{ result }} // list of all places
-              </li>
-            </ul>
+          <div class="location_finder">
+            <!-- <script
+              type="application/javascript"
+              defer
+              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdX1xOMHIaR8I9j_1L1fiFHClnsZyItPM&libraries=places"
+            ></script> -->
+            <!-- <vue-google-autocomplete
+              ref="address"
+              id="map"
+              classname="form-control"
+              placeholder="Please type your address"
+              v-on:placechanged="getAddressData"
+            >
+            </vue-google-autocomplete> -->
+            <!-- <b-form-input
+              v-model="location"
+              placeholder="Enter your address"
+              ref="search"
+            ></b-form-input> -->
+            Your Address
+            <input
+              type="text"
+              ref="search"
+              v-model="location"
+              class="form-control"
+              placeholder="Enter Your Address"
+            />
+            <div class="mt-2">Value: {{ location }}</div>
           </div>
           <formulate-input
             label="How old are you?"
@@ -44,8 +64,7 @@
             name="age"
             min="0"
             max="100"
-            value="35"
-            show-value="100"
+            show-value="27"
             validation="required|min:10|max:90"
             error-behavior="live"
           />
@@ -56,48 +75,28 @@
           <div class="basic_details inputs">
             <h2>Basic Details</h2>
             <p>
-              Add form elements related to travel, activities, social distancing
-              efforts here. (Delete email + symptoms labels later)
+              Enter basic details regarding COVID19
             </p>
-            <!-- <b-card no-body class="overflow-hidden" style="max-width: 540px;">
-              <b-row no-gutters>
-                <b-col md="6">
-                  <b-card-img
-                    src="https://picsum.photos/400/400/?image=20"
-                    alt="Image"
-                    class="rounded-0"
-                  ></b-card-img>
-                </b-col>
-                <b-col md="6">
-                  <b-card-body title="Horizontal Card">
-                    <b-card-text>
-                      This is a wider card with supporting text as a natural
-                      lead-in to additional content. This content is a little
-                      bit longer.
-                    </b-card-text>
-                  </b-card-body>
-                </b-col>
-              </b-row>
-            </b-card> -->
-            <b-card>
-              <formulate-input
-                name="mask_wearing_percentage"
-                type="select"
-                label="How often do you wear a mask?"
-                :options="{
-                  0: 'Never',
-                  25: '25% of the time',
-                  50: '50% of the time',
-                  75: '75% of the time',
-                  100: '100% of the time',
-                }"
-                validation="required"
-              />
-            </b-card>
+            <formulate-input
+              name="mask_wearing_percentage"
+              type="select"
+              label="How often do you wear a mask?"
+              placeholder="Select one"
+              :options="{
+                0: 'Never',
+                25: '25% of the time',
+                50: '50% of the time',
+                75: '75% of the time',
+                100: '100% of the time',
+              }"
+              validation="required"
+            />
+
             <formulate-input
               name="covid_symptom_check"
               type="select"
               label="Do you currently have COVID19 symptoms?"
+              placeholder="Select one"
               :options="{
                 yes: 'Yes',
                 no: 'No',
@@ -131,45 +130,27 @@
               Answer the following questions about your social distancing
               efforts.
             </p>
-            <!-- <b-card no-body class="overflow-hidden" style="max-width: 540px;">
-              <b-row no-gutters>
-                <b-col md="6">
-                  <b-card-img
-                    src="https://picsum.photos/400/400/?image=20"
-                    alt="Image"
-                    class="rounded-0"
-                  ></b-card-img>
-                </b-col>
-                <b-col md="6">
-                  <b-card-body title="Horizontal Card">
-                    <b-card-text>
-                      This is a wider card with supporting text as a natural
-                      lead-in to additional content. This content is a little
-                      bit longer.
-                    </b-card-text>
-                  </b-card-body>
-                </b-col>
-              </b-row>
-            </b-card> -->
-            <b-card>
-              <formulate-input
-                name="social_distancing_q1"
-                type="select"
-                label="Do you avoid contact with people at higher risk for severe illness from COVID-19"
-                :options="{
-                  1: 'Always',
-                  2: 'Mostly',
-                  3: 'Usually',
-                  4: 'Somtimes',
-                  5: 'Never',
-                }"
-                validation="required"
-              />
-            </b-card>
+
+            <formulate-input
+              name="social_distancing_q1"
+              type="select"
+              label="Do you avoid contact with people at higher risk for severe illness from COVID-19"
+              placeholder="Select one"
+              :options="{
+                1: 'Always',
+                2: 'Mostly',
+                3: 'Usually',
+                4: 'Somtimes',
+                5: 'Never',
+              }"
+              validation="required"
+            />
+
             <formulate-input
               name="social_distancing_q10"
               type="select"
               label="How often do you see your family and/or friends?"
+              placeholder="Select one"
               :options="{
                 1: 'Once a week',
                 2: 'Twice a week',
@@ -297,7 +278,6 @@
                 name="hours"
                 min="0"
                 max="24"
-                value="8"
                 show-value="8"
                 validation="required|min:0|max:24"
                 error-behavior="live"
@@ -318,6 +298,7 @@
                 name="contact_frequency"
                 type="select"
                 label="Contact Frequency"
+                placeholder="Select frequency type"
                 :options="{
                   noContact: 'None',
                   infrequent:
@@ -330,6 +311,7 @@
               <formulate-input
                 name="people_encountered"
                 type="select"
+                placeholder="Select one"
                 label="How many people do you encounter on an average day? "
                 :options="{
                   1: 'None',
@@ -344,6 +326,7 @@
                 name="contact_type"
                 type="select"
                 label="Contact Type"
+                placeholder="Select one"
                 :options="{
                   no_contact:
                     'Do not require contact with people known to be, or suspected of being, infected with SARS-CoV-2',
@@ -375,7 +358,7 @@
                 name="school_type"
                 type="select"
                 label="Are your classes remote or in-person?"
-                placeholder=""
+                placeholder="Select one"
                 :options="{
                   remote: 'Remote',
                   inPerson: 'In-person',
@@ -398,6 +381,7 @@
                 name="contact_frequency"
                 type="select"
                 label="Contact Frequency with Other Students"
+                placeholder="Select one"
                 :options="{
                   noContact: 'None',
                   infrequent: 'Infrequent ',
@@ -409,6 +393,7 @@
                 name="people_encountered"
                 type="select"
                 label="How many people do you encounter on an average day? "
+                placeholder="Select one"
                 :options="{
                   1: 'None',
                   2: '1-5',
@@ -499,63 +484,68 @@
   </div>
 </template>
 <script>
+// import VueGoogleAutocomplete from "vue-google-autocomplete";
+
 export default {
   name: "NewUserForm",
-  components: {},
+  components: {
+    // VueGoogleAutocomplete,
+  },
   props: {},
   data() {
     return {
       formValues: {
+        //filled in as example in preparation for edit data page
         name: "Sunghoon Cho",
         age: "27",
       },
-      location: "",
-      searchResults: [],
-      service: null,
+      address: "",
+      location: "4540 Center Boulevard, Queens, NY, USA",
     };
+  },
+  mounted() {
+    // To demonstrate functionality of exposed component functions
+    // Here we make focus on the user input
+    // this.$refs.address.focus();
+    window.checkAndAttachMapScript(this.initLocationSearch);
   },
   methods: {
     seeJson(payload) {
       this.json = payload;
     },
-    MapsInit() {
-      this.service = new window.google.maps.places.AutocompleteService();
-    },
-    displaySuggestions(predictions, status) {
-      if (status !== window.google.maps.places.PlacesServiceStatus.OK) {
-        this.searchResults = [];
-        return;
-      }
-      this.searchResults = predictions.map(
-        (prediction) => prediction.description
+    initLocationSearch() {
+      let autocomplete = new window.google.maps.places.Autocomplete(
+        this.$refs.search
       );
+      autocomplete.addListener("place_changed", function() {
+        let place = autocomplete.getPlace();
+        if (place && place.address_components) {
+          console.log(place.address_components);
+          console.log(place.formatted_address);
+        }
+      });
     },
+    // MapsInit() {
+    //   this.service = new window.google.maps.places.AutocompleteService();
+    // },
+    // getAddressData: function(addressData, placeResultData, id) {
+    //   this.address = addressData;
+    //   this.placeid = id;
+    //   this.placeResultData = placeResultData;
+    // },
   },
-  metaInfo() {
-    return {
-      script: [
-        {
-          src: `https://maps.googleapis.com/maps/api/js?key=<YOUR_API_KEY>&libraries=places`,
-          async: true,
-          defer: true,
-          callback: () => this.MapsInit(), // will declare it in methods
-        },
-      ],
-    };
-  },
-  watch: {
-    location(newValue) {
-      if (newValue) {
-        this.service.getPlacePredictions(
-          {
-            input: this.location,
-            types: ["(cities)"],
-          },
-          this.displaySuggestions
-        );
-      }
-    },
-  },
+  // metaInfo() {
+  //   return {
+  //     script: [
+  //       {
+  //         src: `https://maps.googleapis.com/maps/api/js?key=AIzaSyAdX1xOMHIaR8I9j_1L1fiFHClnsZyItPM&libraries=places`,
+  //         async: true,
+  //         defer: true,
+  //         // callback: () => this.MapsInit(), // will declare it in methods
+  //       },
+  //     ],
+  //   };
+  // },
 };
 </script>
 <style lang="scss">
@@ -587,6 +577,10 @@ export default {
 }
 </style>
 <style>
+.location_finder .input {
+  position: relative;
+  width: 100%;
+}
 .card-body {
   background-color: #fff;
 }
@@ -595,7 +589,6 @@ export default {
   margin: 0 auto;
   position: relative;
 }
-.employed_form,
 .new_user_form {
   margin: 10px 0;
 }
@@ -613,11 +606,9 @@ export default {
   border-radius: 0.5em;
 }
 .basic_details_form {
-  border-top: 2px dashed green;
   padding-top: 30px;
 }
 .employed_form {
-  border-top: 2px dashed green;
   padding-top: 30px;
 }
 .login-form {
@@ -654,5 +645,31 @@ export default {
   .double-wide .formulate-input:last-child {
     margin-left: 0.5em;
   }
+}
+.location_finder .form-control {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.3em;
+  border: 1px solid #cecece;
+  box-sizing: border-box;
+  background-color: transparent;
+  font-size: 0.9em;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica,
+    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  padding: 0.75em;
+  display: block;
+  width: 80%;
+  font-weight: 400;
+  line-height: 1.2em;
+  margin: 0 auto;
+  height: 100%;
+}
+.location_finder {
+  display: block;
+  line-height: 1.5;
+  font-size: 0.9em;
+  font-weight: 600;
+  margin-bottom: 0.1em;
 }
 </style>
