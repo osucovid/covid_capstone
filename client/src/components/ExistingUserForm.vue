@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>New User Form for Personalized Risk Assessment</h1>
+    <h1>Edit My Data for Personalized Risk Assessment</h1>
     <div class="new_user_form">
       <article class="form-container">
         <!-- <formulate-input> not <FormulateInput> as stated in the docs-->
@@ -10,7 +10,7 @@
             COVID19 Risk Assessment Form
           </h2>
           <p>
-            Fill out the following form to receive a personalized risk
+            Edit or update the following form to receive a personalized risk
             assessment
           </p>
           <!-- Start Personal Details -->
@@ -26,8 +26,7 @@
             type="email"
             label="Email address"
             help="We'll never share your email with anyone else."
-            :placeholder="[[ $auth.user.name ]]"
-
+            placeholder="Your address"
             validation="required|email"
           />
           <div class="location_finder">
@@ -52,7 +51,7 @@
             min="0"
             max="100"
             show-value="27"
-            validation="required|min:0|max:100"
+            validation="required|min:10|max:90"
             error-behavior="live"
           />
 
@@ -416,7 +415,7 @@
               />
               <formulate-input
                 name="travel_details_social_distancing"
-                type="radio"
+                type="checkbox"
                 label="During your travels, did you practice social distancing (maintain a distance of 6 feet)"
                 :options="{
                   yes: 'Yes',
@@ -426,7 +425,7 @@
               />
               <formulate-input
                 name="travel_details_wear_mask"
-                type="radio"
+                type="checkbox"
                 label="During your travels, did you wear a cloth face covering"
                 :options="{
                   yes: 'Yes',
@@ -436,7 +435,7 @@
               />
               <formulate-input
                 name="travel_details"
-                type="radio"
+                type="checkbox"
                 label="During your travels, did you wash your hands frequently"
                 :options="{
                   yes: 'Yes',
@@ -463,18 +462,9 @@
           <!-- End Workplace Form -->
 
           <pre class="code" v-text="formValues" />
-
-            <input type="text" v-model="email" :placeholder="[[posts]]">
           <pre class="code" v-text="location" />
-          <div class="actions">
-            <formulate-input type="submit" label="Submit Form" v-on:click="submit" />
-            <formulate-input
-              type="button"
-              label="Reset"
-              data-ghost
-              @click="reset"
-            />
-          </div>
+
+          <formulate-input type="submit" label="Submit Form" />
         </formulate-form>
       </article>
     </div>
@@ -482,33 +472,25 @@
 </template>
 
 <script>
-import PostService from '../DashboardService'
 export default {
   name: "ExistingUserForm",
   components: {},
   props: {},
   data() {
     return {
-      email: "anishreddy82@gmail.com",
-      posts: '',
-      newPosts: [],
-      formValues: {},
-      location: "",
+      formValues: {
+        //filled in as example in preparation for edit data page
+        name: "Sunghoon Cho",
+        email: "chosun@oregonstate.edu",
+        age: "27",
+        mask_wearing_percentage: "0",
+        covid_symptom_check: "yes",
+        health_conditions_check: ["smoker"],
+        social_distancing_q1: "4",
+      },
+      location: "4540 Center Boulevard, Queens, NY, USA",
     };
   },
-  async created(){
-    try{
-      let values = []
-      values = await PostService.getPosts();
-      let i;
-      for(i = 0; i < values.length; i++){
-        if (values[i].email == this.$auth.user.email){
-          this.posts = values[i];
-        }
-      }
-    } catch(err){
-      this.error = err.message;
-    }
   mounted() {
     window.checkAndAttachMapScript(this.getAddress);
   },
@@ -526,18 +508,6 @@ export default {
         vm.location = place.formatted_address;
       });
     },
-    reset() {
-      this.$formulate.reset("name");
-    },
-    async createPost(){
-      await PostService.insertPost(this.text);
-      this.posts = await PostService.getPosts();
-    },
-    async submit(){
-      await PostService.updatePost(this.formValues);
-      this.posts = await PostService.getPosts();
-      // this.posts = await PostService.getPosts();
-    }
   },
   // metaInfo() {
   //   return {
@@ -680,9 +650,5 @@ export default {
 }
 .formulate-input[data-classification="box"] .formulate-input-element {
   overflow: visible;
-}
-.actions .button {
-  display: flex;
-  width: 100px;
 }
 </style>

@@ -6,7 +6,6 @@
         THIS IS FOR TESTING UNTIL THE BACKEND IS CONNECTED WITH USER DATA
       </h2>
       My Data Page showing previously entered data
-      <!-- <PostComponent /> -->
     </div>
   </div>
 </template>
@@ -20,12 +19,9 @@
 
 export default {
   name: "MyData",
-  components: {
-    // PostComponent,
-  },
-  data() {
-    return {};
-  },
+  components: {},
+  data: () => ({}),
+  methods: {},
 };
 </script>
 
