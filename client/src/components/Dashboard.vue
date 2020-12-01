@@ -55,6 +55,7 @@
       <br />
 
       <br />
+      <input type="text" v-model="email" :placeholder="[[posts.from.age]]">
     </div>
   </div>
 </template>
@@ -62,14 +63,31 @@
 <script src="http://d3js.org/d3.v6.min.js" charset="utf-8"></script>
 
 <script>
+import PostService from '../DashboardService';
 import * as d3 from "d3";
 import RiskStatusCard from "@/components/cards/RiskStatusCard.vue";
 
 export default {
   data() {
-    return {};
+    return {
+      posts: ''
+    };
   },
   mounted() {},
+  async created(){
+    try{
+      let values = []
+      values = await PostService.getPosts();
+      let i;
+      for(i = 0; i < values.length; i++){
+        if(values[i].email == this.$auth.user.email){
+          this.posts = values[i];
+        }
+      }
+    } catch(err){
+      this.error = err.message;
+    }
+  },
   name: "Dashboard",
   components: {
     RiskStatusCard,

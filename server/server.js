@@ -29,6 +29,9 @@ mongoose.connect(db, {
   console.log('Unable to onnect with database');
 });
 
+const dashboard = require('./routes/api/dashboard');
+app.use('/api/dashboard', dashboard);
+
 const users = require('./routes/api/users');
 app.use('/api/users', users);
 

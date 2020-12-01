@@ -45,6 +45,7 @@ class PostService {
     });
   }
 
+
   //create post
   static insertPost(text) {
     return axios.post(url, {
@@ -57,9 +58,9 @@ class PostService {
     return axios.delete(`${url}${id}`);
   }
 
-  static updatePost(email, mask, pLocation, checked){
+  static updatePost(form){
     return axios.put(url, {
-      email, mask, pLocation, checked,
+      form,
     });
   }
 }
