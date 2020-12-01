@@ -509,6 +509,7 @@ export default {
     } catch(err){
       this.error = err.message;
     }
+  },
   mounted() {
     window.checkAndAttachMapScript(this.getAddress);
   },
