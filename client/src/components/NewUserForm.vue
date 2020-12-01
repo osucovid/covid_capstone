@@ -463,8 +463,15 @@
 
           <pre class="code" v-text="formValues" />
           <pre class="code" v-text="location" />
-
-          <formulate-input type="submit" label="Submit Form" />
+          <div class="actions">
+            <formulate-input type="submit" label="Submit Form" />
+            <formulate-input
+              type="button"
+              label="Reset"
+              data-ghost
+              @click="reset"
+            />
+          </div>
         </formulate-form>
       </article>
     </div>
@@ -498,6 +505,9 @@ export default {
         let place = autocomplete.getPlace();
         vm.location = place.formatted_address;
       });
+    },
+    reset() {
+      this.$formulate.reset("name");
     },
   },
   // metaInfo() {
@@ -641,5 +651,9 @@ export default {
 }
 .formulate-input[data-classification="box"] .formulate-input-element {
   overflow: visible;
+}
+.actions .button {
+  display: flex;
+  width: 100px;
 }
 </style>
