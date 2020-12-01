@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>New User Form for Personalized Risk Assessment</h1>
+    <h1>Edit My Data for Personalized Risk Assessment</h1>
     <div class="new_user_form">
       <article class="form-container">
         <!-- <formulate-input> not <FormulateInput> as stated in the docs-->
@@ -10,7 +10,7 @@
             COVID19 Risk Assessment Form
           </h2>
           <p>
-            Fill out the following form to receive a personalized risk
+            Edit or update the following form to receive a personalized risk
             assessment
           </p>
           <!-- Start Personal Details -->
@@ -51,7 +51,7 @@
             min="0"
             max="100"
             show-value="27"
-            validation="required|min:0|max:100"
+            validation="required|min:10|max:90"
             error-behavior="live"
           />
 
@@ -478,8 +478,17 @@ export default {
   props: {},
   data() {
     return {
-      formValues: {},
-      location: "",
+      formValues: {
+        //filled in as example in preparation for edit data page
+        name: "Sunghoon Cho",
+        email: "chosun@oregonstate.edu",
+        age: "27",
+        mask_wearing_percentage: "0",
+        covid_symptom_check: "yes",
+        health_conditions_check: ["smoker"],
+        social_distancing_q1: "4",
+      },
+      location: "4540 Center Boulevard, Queens, NY, USA",
     };
   },
   mounted() {
