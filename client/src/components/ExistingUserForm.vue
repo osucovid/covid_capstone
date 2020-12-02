@@ -364,7 +364,7 @@
                 error-behavior="live"
               />
               <formulate-input
-                name="contact_frequency"
+                name="school_contact_frequency"
                 type="select"
                 label="Contact Frequency with Other Students"
                 placeholder="Select one"
@@ -376,7 +376,7 @@
                 validation="required"
               />
               <formulate-input
-                name="people_encountered"
+                name="school_people_encountered"
                 type="select"
                 label="How many people do you encounter on an average day? "
                 placeholder="Select one"
@@ -472,27 +472,34 @@
 </template>
 
 <script>
+import PostService from '../DashboardService';
 export default {
   name: "ExistingUserForm",
   components: {},
   props: {},
   data() {
     return {
-      formValues: {
-        //filled in as example in preparation for edit data page
-        name: "Sunghoon Cho",
-        email: "chosun@oregonstate.edu",
-        age: "27",
-        mask_wearing_percentage: "0",
-        covid_symptom_check: "yes",
-        health_conditions_check: ["smoker"],
-        social_distancing_q1: "4",
-      },
+      formValues: {},
       location: "4540 Center Boulevard, Queens, NY, USA",
     };
   },
-  mounted() {
+  async mounted() {
     window.checkAndAttachMapScript(this.getAddress);
+  
+  },
+  async created(){
+    try{
+      let values = [];
+      values = await PostService.getPosts();
+      let i;
+      for(i = 0; i < values.length; i++){
+        if(values[i].email == this.$auth.user.email){
+          this.formValues = values[i].form;
+        }
+      }
+    } catch(err){
+      this.error = err.message;
+    }
   },
   methods: {
     // seeJson(payload) {

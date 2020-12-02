@@ -16,6 +16,7 @@
 
 <script>
 import RiskGraph from '@/components/partials/RiskGraph.vue'
+import PostService from '../DashboardService';
 
 export default {
   name: 'RiskStatus',
@@ -45,10 +46,27 @@ export default {
           date: '11-01-2020',
           time: '1300'
         }
-      ]
+      ],
+      posts: '',
+      
     }
-  }
-}
+  },
+    mounted() {},
+    async created (){
+      try{
+        let values = []
+        values = await PostService.getPosts();
+        let i;
+        for(i = 0; i < values.length; i++){
+          if(values[i].email == this.$auth.user.email){
+            this.posts = values[i];
+          }
+        }
+      } catch(err){
+        this.error = err.message;
+      }
+    },
+  };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

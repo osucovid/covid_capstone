@@ -11,11 +11,11 @@
         <div>
         <div>
           <h2>First Name</h2>
-          <input type="text" v-model="firstName" :placeholder="[[ post.firstname ]]">
+          <input type="text" v-model="post.firstName" :placeholder="[[ post.firstname ]]">
         </div>
         <div>
           <h2>Last Name</h2>
-          <input type="text" v-model="lastName" :placeholder="[[ post.lastname ]]"> 
+          <input type="text" v-model="post.lastName" :placeholder="[[ post.lastname ]]"> 
         </div>
 
         <div>
@@ -44,7 +44,7 @@ export default {
   name: 'UserInfo',
   data() {
     return {
-      posts: [],
+      posts: {},
       error: '',
       text: '',
       firstName: '',

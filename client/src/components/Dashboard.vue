@@ -15,11 +15,16 @@
       <h2>Your Risk Assessment</h2>
       <br />
 
-      <div class="risk_assess">
-        <RiskStatusCard />
-        <RiskStatusCard />
-        <RiskStatusCard />
+    
+      <div v-if="posts.form" class="risk_assess">
+        <RiskStatusCard1 />
+        <RiskStatusCard2 />
+        <RiskStatusCard3 />
       </div>
+      <div v-if="posts.form == 'undefined'" class="risk_assess">
+        <RiskStatusCardError />
+      </div>
+
       <b-card-group deck>
         <!-- <b-card bg-variant="light" title="Risk Status" img-alt="Image" img-top>
           <b-card-text>
@@ -65,7 +70,11 @@
 <script>
 import PostService from '../DashboardService';
 import * as d3 from "d3";
-import RiskStatusCard from "@/components/cards/RiskStatusCard.vue";
+import RiskStatusCard1 from "@/components/cards/RiskStatusCard1.vue";
+import RiskStatusCard2 from "@/components/cards/RiskStatusCard2.vue";
+import RiskStatusCard3 from "@/components/cards/RiskStatusCard3.vue";
+import RiskStatusCardError from "@/components/cards/RiskStatusCardError.vue";
+
 
 export default {
   data() {
@@ -90,7 +99,10 @@ export default {
   },
   name: "Dashboard",
   components: {
-    RiskStatusCard,
+    RiskStatusCard1,
+    RiskStatusCard2,
+    RiskStatusCard3,
+    RiskStatusCardError
   },
 };
 </script>

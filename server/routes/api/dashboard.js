@@ -44,7 +44,7 @@ router.put("/", async (req, res) => {
   console.log(req.body);
 
   const query = {email: req.body.form.email};
-  const update = { $set: {form: req.body.form } };
+  const update = { $set: {form: req.body.form, location: req.body.location } };
   const options = {"upsert": true}
     
   await posts.updateOne(query, update, options, function(err, res) {

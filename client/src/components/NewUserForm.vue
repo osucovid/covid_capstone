@@ -356,7 +356,7 @@
               <formulate-input
                 label="How many hours do you spend away from home?"
                 type="range"
-                name="hours"
+                name="school_hours"
                 min="0"
                 max="24"
                 value="8"
@@ -365,7 +365,7 @@
                 error-behavior="live"
               />
               <formulate-input
-                name="contact_frequency"
+                name="school_contact_frequency"
                 type="select"
                 label="Contact Frequency with Other Students"
                 placeholder="Select one"
@@ -377,7 +377,7 @@
                 validation="required"
               />
               <formulate-input
-                name="people_encountered"
+                name="school_people_encountered"
                 type="select"
                 label="How many people do you encounter on an average day? "
                 placeholder="Select one"
@@ -535,7 +535,7 @@ export default {
       this.posts = await PostService.getPosts();
     },
     async submit(){
-      await PostService.updatePost(this.formValues);
+      await PostService.updatePost(this.formValues, this.location);
       this.posts = await PostService.getPosts();
       // this.posts = await PostService.getPosts();
     }
