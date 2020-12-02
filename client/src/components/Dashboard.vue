@@ -16,13 +16,10 @@
       <br />
 
     
-      <div v-if="posts.form" class="risk_assess">
+      <div class="risk_assess">
         <RiskStatusCard1 />
         <RiskStatusCard2 />
         <RiskStatusCard3 />
-      </div>
-      <div v-if="posts.form == 'undefined'" class="risk_assess">
-        <RiskStatusCardError />
       </div>
 
       <b-card-group deck>
@@ -60,7 +57,7 @@
       <br />
 
       <br />
-      <input type="text" v-model="email" :placeholder="[[posts.from.age]]">
+      <input type="text" v-model="email" :placeholder="[[posts.form.age]]">
     </div>
   </div>
 </template>
