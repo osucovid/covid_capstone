@@ -42,7 +42,7 @@ export default {
       }
 
       if(this.posts.form.mask_wearing_percentage != "100"){
-        this.message = "It is highly recommendd that you wear a mask at all times when around other people or in public.";
+        this.message = "It is highly recommended that you wear a mask at all times when around other people or in public.";
       }
       else{
         this.message = "You are doing an awesome job! Continue wearing a mask when in public, or around other people!";
