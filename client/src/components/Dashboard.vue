@@ -57,7 +57,6 @@
       <br />
 
       <br />
-      <input type="text" v-model="email" :placeholder="[[posts.form.age]]">
     </div>
   </div>
 </template>
