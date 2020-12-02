@@ -41,7 +41,7 @@ export default {
         this.error = err.message;
       }
 
-      if(this.posts.form.travel_details_wear_mask == "Yes" || this.posts.travel_details_wear_mask == "No"){
+      if(this.posts.form.travel_type == "international" || this.posts.travel_type == "domestic"){
           this.message = "Please try to refrain from traveling unless absolutely necessary. Traveling can cause a greater spread of COVID."
       }
       else{

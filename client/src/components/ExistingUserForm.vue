@@ -464,7 +464,7 @@
           <pre class="code" v-text="formValues" />
           <pre class="code" v-text="location" />
 
-          <formulate-input type="submit" label="Submit Form" />
+          <formulate-input type="submit" label="Submit Form" v-on:click="submit"/>
         </formulate-form>
       </article>
     </div>
@@ -515,7 +515,23 @@ export default {
         vm.location = place.formatted_address;
       });
     },
+    async submit(){
+      await PostService.updatePost(this.formValues, this.location);
+      try{
+        let values = [];
+        values = await PostService.getPosts();
+        let i;
+        for(i = 0; i < values.length; i++){
+          if(values[i].email == this.$auth.user.email){
+            this.formValues = values[i].form;
+          }
+        }
+      } catch(err){
+        this.error = err.message;
+      }
+    }
   },
+
   // metaInfo() {
   //   return {
   //     script: [
