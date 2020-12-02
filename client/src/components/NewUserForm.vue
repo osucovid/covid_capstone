@@ -504,6 +504,8 @@ export default {
       for(i = 0; i < values.length; i++){
         if (values[i].email == this.$auth.user.email){
           this.posts = values[i];
+          this.location = values[i].location;
+
         }
       }
     } catch(err){

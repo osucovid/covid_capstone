@@ -480,7 +480,7 @@ export default {
   data() {
     return {
       formValues: {},
-      location: "4540 Center Boulevard, Queens, NY, USA",
+      location: "",
     };
   },
   async mounted() {
@@ -495,6 +495,7 @@ export default {
       for(i = 0; i < values.length; i++){
         if(values[i].email == this.$auth.user.email){
           this.formValues = values[i].form;
+          this.location = values[i].location;
         }
       }
     } catch(err){
