@@ -103,7 +103,7 @@
                 scd: 'I have Sickle Cell Disease',
                 smoker: 'I am a Smoker',
                 type2d: 'I have Type 2 Diabetes',
-                none: 'I have no health conditions',
+                none: 'I have none of these high-risk health conditions',
               }"
             />
           </div>
@@ -135,13 +135,14 @@
             <formulate-input
               name="social_distancing_q10"
               type="select"
-              label="How often do you see your family and/or friends?"
+              label="How often do you see your family and/or friends who live outside of your household?"
               placeholder="Select one"
               :options="{
-                1: 'Once a week',
-                2: 'Twice a week',
-                3: 'Most of the week',
-                4: 'Everyday',
+                1: 'Never',
+                2: 'Once a month',
+                3: 'Once a week',
+                4: 'Most days',
+                5: 'Everyday',
               }"
               validation="required"
             />
@@ -186,7 +187,7 @@
               validation="required"
             />
             <formulate-input
-              name="social_distancing_q5"
+              name="social_distancing_q15"
               type="radio"
               label="When running errands, do you stay at least 6 feet away from others who are not from your household while shopping and in lines?"
               :options="{
@@ -259,7 +260,7 @@
                 validation="required"
               />
               <formulate-input
-                label="How many hours do you spend away from home?"
+                label="How many hours a day do you spend away from home?"
                 type="range"
                 name="hours"
                 min="0"
@@ -272,7 +273,7 @@
                 name="workplace_type"
                 type="select"
                 label="Workplace Type"
-                placeholder="Select a workpalce type"
+                placeholder="Select a workplace type"
                 :options="{
                   remote: 'Remote (working from home)',
                   atOffice: 'At the office',
@@ -310,7 +311,7 @@
               />
               <formulate-input
                 name="contact_type"
-                type="select"
+                type="checkbox"
                 label="Contact Type"
                 placeholder="Select one"
                 :options="{
@@ -353,7 +354,7 @@
                 validation="required"
               />
               <formulate-input
-                label="How many hours do you spend away from home?"
+                label="How many hours a day do you spend away from home?"
                 type="range"
                 name="hours"
                 min="0"
@@ -401,10 +402,10 @@
             >
             <b-collapse id="collapse-2" class="mt-2">
               <h2>Travel Details</h2>
-              <p>Fill out the following form about your recent travel.</p>
+              <p>Fill out the following form about your recent travel, if applicable. If you didn't travel, don't fill out this section.</p>
               <formulate-input
                 name="travel_type"
-                type="select"
+                type="radio"
                 label="Travel Type"
                 placeholder="Select a travel type"
                 :options="{
@@ -415,8 +416,8 @@
               />
               <formulate-input
                 name="travel_details_social_distancing"
-                type="checkbox"
-                label="During your travels, did you practice social distancing (maintain a distance of 6 feet)"
+                type="radio"
+                label="During your travels, did you practice social distancing (maintain a distance of 6 feet)?"
                 :options="{
                   yes: 'Yes',
                   no: 'No',
@@ -425,8 +426,8 @@
               />
               <formulate-input
                 name="travel_details_wear_mask"
-                type="checkbox"
-                label="During your travels, did you wear a cloth face covering"
+                type="radio"
+                label="During your travels, did you wear a cloth face covering?"
                 :options="{
                   yes: 'Yes',
                   no: 'No',
@@ -435,8 +436,8 @@
               />
               <formulate-input
                 name="travel_details"
-                type="checkbox"
-                label="During your travels, did you wash your hands frequently"
+                type="radio"
+                label="During your travels, did you wash your hands frequently?"
                 :options="{
                   yes: 'Yes',
                   no: 'No',
@@ -532,7 +533,6 @@ export default {
         this.error = err.message;
       }
       this.$router.push('/dashboard');
-
     },
     navigate(){
       this.$router.push('/dashboard');

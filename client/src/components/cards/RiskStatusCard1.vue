@@ -6,7 +6,7 @@
           {{ message }}
         </b-card-text>
         <template v-slot:footer>
-          <small class="text-muted">Last updated 3 mins ago</small>
+          <small class="text-muted"></small>
         </template>
       </b-card>
     </b-card-group>

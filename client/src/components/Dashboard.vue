@@ -3,11 +3,12 @@
     <div>
       <br />
       <h2>Data as of: {{ new Date().toLocaleDateString() }}</h2>
-      <img
+      
+      <!---<img
         :src="require('../assets/graph.svg')"
         :width="800"
         :padding-bottom="25"
-      />
+      />--->
     </div>
 
     <div>
@@ -15,6 +16,11 @@
       <h2>Your Risk Assessment</h2>
       <br />
 
+      <RiskCalc />
+
+      <br />
+      <h2>Customized Recommendations</h2>
+      <br />
     
       <div class="risk_assess">
         <RiskStatusCard1 />
@@ -70,6 +76,8 @@ import RiskStatusCard1 from "@/components/cards/RiskStatusCard1.vue";
 import RiskStatusCard2 from "@/components/cards/RiskStatusCard2.vue";
 import RiskStatusCard3 from "@/components/cards/RiskStatusCard3.vue";
 import RiskStatusCardError from "@/components/cards/RiskStatusCardError.vue";
+import RiskCalc from "@/components/cards/RiskCalc.vue";
+
 
 
 export default {
@@ -98,7 +106,8 @@ export default {
     RiskStatusCard1,
     RiskStatusCard2,
     RiskStatusCard3,
-    RiskStatusCardError
+    RiskStatusCardError,
+    RiskCalc
   },
 };
 </script>
