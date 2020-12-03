@@ -5,6 +5,9 @@ const cors = require("cors");
 const mongoose = require('mongoose');
 const path = require('path');
 const bodyParser = require('body-parser');
+const MongoClient = require('mongodb').MongoClient;
+const port = process.env.PORT || 5000;
+
 // const path = require("path");
 
 //initialize app with express
@@ -20,13 +23,15 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-const db = require('./config/keys').mongoURI;
-mongoose.connect(db, {
-  useNewUrlParser: true
-}).then(() => {
-  console.log('Database connected successfully ' + db);
-}).catch(err => {
-  console.log('Unable to onnect with database');
+const client = require('./config/keys').mongoURI;
+MongoClient.connect(client, { promiseLibrary: Promise }, (err, db) => {
+  if (err) {
+    console.log(`Failed to connect to the database. ${err.stack}`);
+  }
+  app.locals.db = db;
+  app.listen(port, () => {
+    console.log(`Node.js app is listening at http://localhost:${port}`);
+  });
 });
 
 const dashboard = require('./routes/api/dashboard');
@@ -54,6 +59,5 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //port for heroku, localhost will run on 5000
-const port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log(`Server started on port ${port}`));
+//app.listen(port, () => console.log(`Server started on port ${port}`));

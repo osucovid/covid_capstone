@@ -4,9 +4,18 @@ const mongodb = require("mongodb");
 
 const router = express.Router();
 
+// const client = mongodb.MongoClient.connect(
+//   "mongodb+srv://capstonecovid:capstonecovid@covidcluster.w5yhl.mongodb.net/<dbname>?retryWrites=true&w=majority",
+//   {
+//     useNewUrlParser: true,
+//   }
+// );
+
+
+
 //get posts
 router.get("/", async (req, res) => {
-  const posts = await loadPostsCollection();
+  const posts = await loadPostsCollection(req);
   //send an array of posts in the db
 
   //{query to find text that matches but leave it empty to recieve all as an array}
@@ -22,7 +31,7 @@ router.get("/", async (req, res) => {
 
 //add posts
 router.post("/", async (req, res) => {
-  const posts = await loadPostsCollection();
+  const posts = await loadPostsCollection(req);
   await posts.insertOne({
     text: req.body.text,
     createdAt: new Date(),
@@ -40,7 +49,7 @@ router.delete("/:id", async (req, res) => {
 });
 
 router.put("/", async (req, res) => {
-  const posts = await loadPostsCollection();
+  const posts = await loadPostsCollection(req);
   console.log(req.body);
 
   const query = {email: req.body.form.email};
@@ -55,16 +64,17 @@ router.put("/", async (req, res) => {
 
 //function to connect to posts collection
 //async await is elegant way to handle async data and promises
-async function loadPostsCollection() {
-  const client = await mongodb.MongoClient.connect(
-    "mongodb+srv://capstonecovid:capstonecovid@covidcluster.w5yhl.mongodb.net/<dbname>?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-    }
-  );
-
-  //get the posts collection to run methods on it like insert and delete etc
-  return client.db("db-name").collection("users");
+async function loadPostsCollection(req) {
+  // const client = await mongodb.MongoClient.connect(
+  //   "mongodb+srv://capstonecovid:capstonecovid@covidcluster.w5yhl.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  //   {
+  //     useNewUrlParser: true,
+  //   }
+  // );
+  const client = req.app.locals.db;
+  let array = [];
+  array = await client.db("db-name").collection("users");
+  return array;
 }
 
 module.exports = router;
