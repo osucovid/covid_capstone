@@ -62,7 +62,10 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../components/NewUserForm.vue"),
   },
-  {
+
+  /* no longer using settings or profile so will comment this out */
+  
+  /*{
     path: "/settings",
     name: "Settings",
     component: () => import("../views/Settings.vue"),
@@ -72,7 +75,7 @@ const routes = [
     path: "/profile",
     name: "Profile",
     component: () => import("../views/Profile.vue"),
-  },
+  },*/
 ];
 
 const router = new VueRouter({
