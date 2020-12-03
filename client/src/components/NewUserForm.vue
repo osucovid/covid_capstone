@@ -536,9 +536,10 @@ export default {
       await PostService.insertPost(this.text);
       this.posts = await PostService.getPosts();
     },
-    async submit(){
-      await PostService.updatePost(this.formValues, this.location);
-      this.posts = await PostService.getPosts();
+    submit(){
+      PostService.updatePost(this.formValues, this.location);
+      this.posts = PostService.getPosts();
+      this.$router.push('/dashboard');
       // this.posts = await PostService.getPosts();
     }
   },
