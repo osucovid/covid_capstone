@@ -402,7 +402,10 @@
             >
             <b-collapse id="collapse-2" class="mt-2">
               <h2>Travel Details</h2>
-              <p>Fill out the following form about your recent travel, if applicable. If you didn't travel, don't fill out this section.</p>
+              <p>
+                Fill out the following form about your recent travel, if
+                applicable. If you didn't travel, don't fill out this section.
+              </p>
               <formulate-input
                 name="travel_type"
                 type="radio"
@@ -465,8 +468,11 @@
           <pre class="code" v-text="formValues" />
           <pre class="code" v-text="location" />
 
-          <formulate-input type="submit" label="Submit Form" v-on:click="submit"/>
-
+          <formulate-input
+            type="submit"
+            label="Submit Form"
+            v-on:click="submit"
+          />
         </formulate-form>
       </article>
     </div>
@@ -474,7 +480,7 @@
 </template>
 
 <script>
-import PostService from '../DashboardService';
+import PostService from "../DashboardService";
 export default {
   name: "ExistingUserForm",
   components: {},
@@ -487,20 +493,19 @@ export default {
   },
   async mounted() {
     window.checkAndAttachMapScript(this.getAddress);
-  
   },
-  async created(){
-    try{
+  async created() {
+    try {
       let values = [];
       values = await PostService.getPosts();
       let i;
-      for(i = 0; i < values.length; i++){
-        if(values[i].email == this.$auth.user.email){
+      for (i = 0; i < values.length; i++) {
+        if (values[i].email == this.$auth.user.email) {
           this.formValues = values[i].form;
           this.location = values[i].location;
         }
       }
-    } catch(err){
+    } catch (err) {
       this.error = err.message;
     }
   },
@@ -518,25 +523,25 @@ export default {
         vm.location = place.formatted_address;
       });
     },
-    submit(){
+    submit() {
       PostService.updatePost(this.formValues, this.location);
-      try{
+      try {
         let values = [];
         values = PostService.getPosts();
         let i;
-        for(i = 0; i < values.length; i++){
-          if(values[i].email == this.$auth.user.email){
+        for (i = 0; i < values.length; i++) {
+          if (values[i].email == this.$auth.user.email) {
             this.formValues = values[i].form;
           }
         }
-      } catch(err){
+      } catch (err) {
         this.error = err.message;
       }
-      this.$router.push('/dashboard');
+      this.$router.push("/dashboard");
     },
-    navigate(){
-      this.$router.push('/dashboard');
-    }
+    navigate() {
+      this.$router.push("/dashboard");
+    },
   },
 
   // metaInfo() {
