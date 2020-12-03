@@ -465,6 +465,7 @@
           <pre class="code" v-text="location" />
 
           <formulate-input type="submit" label="Submit Form" v-on:click="submit"/>
+
         </formulate-form>
       </article>
     </div>
@@ -516,11 +517,11 @@ export default {
         vm.location = place.formatted_address;
       });
     },
-    async submit(){
-      await PostService.updatePost(this.formValues, this.location);
+    submit(){
+      PostService.updatePost(this.formValues, this.location);
       try{
         let values = [];
-        values = await PostService.getPosts();
+        values = PostService.getPosts();
         let i;
         for(i = 0; i < values.length; i++){
           if(values[i].email == this.$auth.user.email){
@@ -530,6 +531,11 @@ export default {
       } catch(err){
         this.error = err.message;
       }
+      this.$router.push('/dashboard');
+
+    },
+    navigate(){
+      this.$router.push('/dashboard');
     }
   },
 
