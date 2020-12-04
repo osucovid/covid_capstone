@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-card-group deck>
-      <b-card bg-variant="light" title="Mask Risk Status" img-alt="Image" img-top>
+      <b-card bg-variant="light" title="Mask Recommendation" img-alt="Image" img-top>
         <b-card-text>
           {{ message }}
         </b-card-text>
