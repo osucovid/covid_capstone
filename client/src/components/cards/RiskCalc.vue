@@ -86,8 +86,7 @@
             <img :src="require('../../assets/face-mask.svg')" :width="75" />
             <b-icon
               icon="exclamation-circle-fill"
-              variant="secondary"
-              style="width: 75px; height: 75px;"
+              style="width: 75px; height: 75px; color: #ECE90C;"
             ></b-icon>
           </div>
           <div class="small_risk_card" v-if="this.maskLevel == 'mod'">
@@ -158,8 +157,7 @@
             />
             <b-icon
               icon="exclamation-circle-fill"
-              variant="secondary"
-              style="width: 75px; height: 75px;"
+              style="width: 75px; height: 75px; color: #ECE90C;"
             ></b-icon>
           </div>
           <div class="small_risk_card" v-if="this.socialLevel == 'mod'">
@@ -199,8 +197,7 @@
             <img :src="require('../../assets/worker.svg')" :width="75" />
             <b-icon
               icon="exclamation-circle-fill"
-              variant="secondary"
-              style="width: 75px; height: 75px;"
+              style="width: 75px; height: 75px; color: #ECE90C;"
             ></b-icon>
           </div>
           <div class="small_risk_card" v-if="this.workLevel == 'mod'">
@@ -241,8 +238,7 @@
             <img :src="require('../../assets/school.svg')" :width="75" />
             <b-icon
               icon="exclamation-circle-fill"
-              variant="secondary"
-              style="width: 75px; height: 75px;"
+              style="width: 75px; height: 75px; color: #ECE90C;"
             ></b-icon>
           </div>
           <div class="small_risk_card" v-if="this.schoolLevel == 'mod'">
@@ -283,8 +279,7 @@
             <img :src="require('../../assets/globe.svg')" :width="75" />
             <b-icon
               icon="exclamation-circle-fill"
-              variant="secondary"
-              style="width: 75px; height: 75px;"
+              style="width: 75px; height: 75px; color: #ECE90C;"
             ></b-icon>
           </div>
           <div class="small_risk_card" v-if="this.travelLevel == 'mod'">
@@ -497,7 +492,7 @@ export default {
 
       console.log(" q8 social: " + socialPoints);
 
-      if (this.posts.form.social_distancing_q9 == "yes") {
+      if (this.posts.form.social_distancing_q9 == "no") {
         socialPoints += 2;
       }
 
@@ -735,7 +730,7 @@ export default {
         " this.posts.form.travel_details " +
         this.posts.form.travel_details +
         " this.posts.form.travel_details " +
-        this.posts.form.travel_details
+        this.posts.form.travel_details + "this.posts.form.travel_type" + this.posts.form.travel_type
     );
 
     this.pointsMessage = "Your Points Total: " + totalPoints;

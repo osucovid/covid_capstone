@@ -68,7 +68,7 @@ export default {
 
     if (
       this.posts.form.travel_type == "international" ||
-      this.posts.travel_type == "domestic"
+      this.posts.form.travel_type == "domestic"
     ) {
       this.message =
         "Please try to refrain from traveling unless absolutely necessary. Traveling can cause a greater spread of COVID, both in your local community and the areas you traveled to.";
