@@ -69,20 +69,20 @@
         img-top
       >
         <b-card-text>
-          <p v-if="this.posts.health_conditions_check == 'none'">
+          <!---<p v-if="this.posts.form.health_conditions_check[0] == 'none'">
             <b-icon
               icon="exclamation-circle-fill"
               variant="danger"
               style="width: 100px; height: 100px;"
             ></b-icon>
           </p>
-          <p v-if="this.posts.health_conditions_check != 'none'">
+          <p v-if="this.posts.form.health_conditions_check[0] != 'none'">
             <b-icon
               icon="exclamation-circle-fill"
               variant="success"
               style="width: 100px; height: 100px;"
             ></b-icon>
-          </p>
+          </p>--->
           {{ medMessage }}
         </b-card-text>
         <template v-slot:footer>
@@ -228,14 +228,14 @@ export default {
 
       // medical conditions calculation. If the user has ANY of the listed conditions, give them 50 pts.
 
-      if (this.posts.health_conditions_check != "none") {
+      if (this.posts.form.health_conditions_check[0] != "none") {
         totalPoints += 50;
         this.medMessage =
           "You are high risk because you listed one or more high-risk medical conditions.";
         highRiskCategories += 1;
       }
 
-      if (this.posts.health_conditions_check == "none") {
+      if (this.posts.form.health_conditions_check[0] == "none") {
         this.medMessage =
           "You are at low risk because you didn't list any high-risk medical conditions.";
       }
@@ -247,7 +247,7 @@ export default {
       var socialPoints = 0;
 
       if (
-        this.posts.form.social_distancing_q1 != "1" ||
+        this.posts.form.social_distancing_q1 != "1" &&
         this.posts.form.social_distancing_q1 != "2"
       ) {
         socialPoints += 2;
@@ -303,7 +303,7 @@ export default {
 
       console.log(" q8 social: " + socialPoints);
 
-      if (this.posts.form.social_distancing_q9 == "no") {
+      if (this.posts.form.social_distancing_q9 == "yes") {
         socialPoints += 2;
       }
 
@@ -332,7 +332,7 @@ export default {
 
       var workPoints = 0;
 
-      if (this.posts.form.workplace_type != "remote") {
+      if (this.posts.form.workplace_type != "remote" && this.posts.form.workplace_type != "none") {
         workPoints += 5;
       }
 
@@ -398,8 +398,8 @@ export default {
       console.log(" schoolPoints q3: " + schoolPoints);
 
       if (
-        this.posts.form.school_people_encountered != "1" ||
-        this.posts.form.school_people_encountered != "2"
+        this.posts.form.school_people_encountered != "0" &&
+        this.posts.form.school_people_encountered != "1"
       ) {
         schoolPoints += 5;
       }
@@ -484,13 +484,15 @@ export default {
 
     // used for testing
 
+    //console.log("this.posts.form.health_conditions_check[0]"" + JSON.stringify(this.posts.form.health_conditions_check[0]));
+
+
     console.log(
-      "this.posts.form.age: " +
+        "highRiskCategories: " + highRiskCategories + 
+        "this.posts.form.age: " +
         this.posts.form.age +
         " this.posts.form.mask_wearing_percentage " +
         this.posts.form.mask_wearing_percentage +
-        " this.posts.health_conditions_check: " +
-        this.posts.health_conditions_check +
         " this.posts.form.social_distancing_q10 " +
         this.posts.form.social_distancing_q10 +
         " this.posts.form.social_distancing_q1 " +
@@ -538,14 +540,14 @@ export default {
       this.riskStatus = "High";
     }
 
-    if (highRiskCategories == 0 || (totalPoints >= 25 && totalPoints < 100)) {
+    if (highRiskCategories == 0 && (totalPoints >= 25 && totalPoints < 100)) {
       this.message =
         "Overall your risk for catching and/or having a serious case of COVID-19 is moderate, because of your age, medical history, and/or risky behavior. See below for suggestions about how to lower your risk level. Consult your doctor and/or the resources in the About page.";
 
       this.riskStatus = "Moderate";
     }
 
-    if (highRiskCategories == 0 || totalPoints < 25) {
+    if (highRiskCategories == 0 && totalPoints < 25) {
       this.message =
         "Overall your risk for catching and/or having a serious case of COVID-19 is low, because of your age, medical history, and/or risky behavior. Great job! There may be suggestions below about how to lower your risk level even further.";
 

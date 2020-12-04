@@ -256,6 +256,7 @@
                   halfTime: 'Half-time',
                   fullTime: 'Full-time',
                   onCall: 'On-call or freelance',
+                  none: 'Not Applicable'
                 }"
                 validation="required"
               />
@@ -278,6 +279,7 @@
                   remote: 'Remote (working from home)',
                   atOffice: 'At the office',
                   halfhalf: 'Partially remote, partially at the office',
+                  none: 'Not Applicable'
                 }"
                 validation="required"
               />
@@ -350,6 +352,7 @@
                   remote: 'Remote',
                   inPerson: 'In-person',
                   halfnhalf: 'Half and half',
+                  none: 'Not Applicable',
                 }"
                 validation="required"
               />
@@ -404,7 +407,7 @@
               <h2>Travel Details</h2>
               <p>
                 Fill out the following form about your recent travel, if
-                applicable. If you didn't travel, don't fill out this section.
+                applicable.
               </p>
               <formulate-input
                 name="travel_type"
@@ -414,6 +417,7 @@
                 :options="{
                   domestic: 'Domestic',
                   international: 'International',
+                  none: 'N/A',
                 }"
                 validation="required"
               />
@@ -424,16 +428,18 @@
                 :options="{
                   yes: 'Yes',
                   no: 'No',
+                  none: 'N/A',
                 }"
                 validation="required"
               />
               <formulate-input
                 name="travel_details_wear_mask"
                 type="radio"
-                label="During your travels, did you wear a cloth face covering?"
+                label="During your travels, did you wear a face covering?"
                 :options="{
                   yes: 'Yes',
                   no: 'No',
+                  none: 'N/A',
                 }"
                 validation="required"
               />
@@ -444,6 +450,7 @@
                 :options="{
                   yes: 'Yes',
                   no: 'No',
+                  none: 'N/A',
                 }"
                 validation="required"
               />
@@ -459,6 +466,7 @@
                   cruise_ship:
                     'Healthcare delivery and support staff (hospital staff who must enter patients’ rooms) exposed to known or suspected COVID-19 patients.',
                   very_high_contact: 'Travel on a cruise ship or river boat',
+                  none: `Not applicable, I didn't travel`,
                 }"
               />
             </b-collapse>
