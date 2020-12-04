@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <h1 class="text-center text-info ">COVID19 Testing Hospitals Near You</h1>
+    <h3>Your location: {{ location }}</h3>
 
     <div class="row">
       <div class="col-12">
@@ -18,7 +19,7 @@
             />
           </ul>
           <div class="card-footer">
-            Card footer
+            <!-- Card footer -->
           </div>
         </div>
       </div>
@@ -42,6 +43,8 @@
 import axios from "axios";
 import HospitalList from "@/components/partials/HospitalList.vue";
 import HospitalMap from "@/components/partials/HospitalMap.vue";
+import PostService from "../DashboardService";
+import { latLng } from "leaflet";
 
 export default {
   name: "JsonMap2",
@@ -58,7 +61,23 @@ export default {
       hospitals: [],
       normalIcon: [15, 15],
       largeIcon: [50, 50],
+      location: "",
+      googleLatLng: latLng,
     };
+  },
+  async created() {
+    try {
+      let values = [];
+      values = await PostService.getPosts();
+      let i;
+      for (i = 0; i < values.length; i++) {
+        if (values[i].email == this.$auth.user.email) {
+          this.location = values[i].location;
+        }
+      }
+    } catch (err) {
+      this.error = err.message;
+    }
   },
   mounted: function() {
     //axios returns a promise, not the data
@@ -81,11 +100,11 @@ export default {
   methods: {
     mouseOverHospital: function(index) {
       this.hospitals[index].iconSize = this.largeIcon;
-      console.log(index + "mouse over");
+      // console.log(index + "mouse over");
     },
     mouseLeftHospital: function(index) {
       this.hospitals[index].iconSize = this.normalIcon;
-      console.log(index + "mouse left");
+      // console.log(index + "mouse left");
     },
   },
 };
