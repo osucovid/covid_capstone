@@ -431,7 +431,7 @@ export default {
       if (this.posts.form.health_conditions_check[0] == "none") {
         this.medMessage =
           "You are at low risk because you didn't list any high-risk medical conditions associated with serious COVID-19 cases.";
-        this.medLevel = "high";
+        this.medLevel = "low";
       }
 
       console.log(" med points: " + totalPoints);
