@@ -303,7 +303,7 @@
           <div id="card">
             <h2>Share on Social Networks</h2>
             <p>Like our site? Share it:</p>
-            <share-it />
+              <share-it :icons="true" :targets="['twitter', 'facebook', 'linkedin', 'reddit']" />
           </div>
         </div>
       </div>
@@ -314,6 +314,9 @@
 <script>
 import Vue from "vue";
 import shareIt from "vue-share-it";
+
+Vue.config.productionTip = false;
+Vue.config.ignoredElements = [/snippet-\w*/];
 
 Vue.use(shareIt);
 

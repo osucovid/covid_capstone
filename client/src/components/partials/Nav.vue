@@ -49,16 +49,19 @@
             <template v-slot:button-content>
               User
             </template>
-            <b-dropdown-item href="#">
+
+
+            <!--- Commenting out Profile and Settings --->
+
+            <!--- <b-dropdown-item href="#">
               <div v-if="!$auth.loading">
-                <!-- show login when not authenticated -->
+
                 <a
                   v-if="!$auth.isAuthenticated"
                   @click="login"
                   class="button is-dark"
                   ><strong>Profile</strong></a
                 >
-                <!-- show logout when authenticated -->
                 <a v-if="$auth.isAuthenticated" class="button is-dark"
                   ><strong
                     ><router-link to="/profile">Profile</router-link></strong
@@ -66,11 +69,16 @@
                 >
               </div>
             </b-dropdown-item>
+
+
             <b-dropdown-item href="#"
               ><router-link to="/settings"
                 >Settings</router-link
-              ></b-dropdown-item
-            >
+              ></b-dropdown-item> --->
+
+            <!--- Above: Commenting out Profile and Settings --->
+
+
             <b-dropdown-item href="#">
               <div v-if="!$auth.loading">
                 <!-- show login when not authenticated -->
