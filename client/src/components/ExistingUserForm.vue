@@ -6,10 +6,7 @@
         <!-- <formulate-input> not <FormulateInput> as stated in the docs-->
         <!-- <formulate-form> not <FormulateForm> as stated in the docs-->
         <formulate-form v-model="formValues">
-          <img
-            :src="require('../assets/form-icon.svg')"
-            :width="150"
-          />
+          <img :src="require('../assets/form-icon.svg')" :width="150" />
           <h2 class="form-title">
             COVID-19 Risk Assessment Form
           </h2>
@@ -63,10 +60,7 @@
 
           <!-- Start Daily Details Form -->
           <div class="basic_details inputs">
-          <img
-            :src="require('../assets/heartbeat.svg')"
-            :width="150"
-          />          
+            <img :src="require('../assets/heartbeat.svg')" :width="150" />
             <h2>Basic Details</h2>
             <p>
               Enter basic details about your health and routines
@@ -120,10 +114,10 @@
 
           <!-- Start Social Distancing Details Form -->
           <div class="social_distancing inputs">
-          <img
-            :src="require('../assets/social-distancing.svg')"
-            :width="150"
-          />
+            <img
+              :src="require('../assets/social-distancing.svg')"
+              :width="150"
+            />
             <h2>Social Distancing Details</h2>
             <p>
               Answer the following questions about your social distancing
@@ -258,10 +252,7 @@
               >Click here if you are currently employed</b-button
             >
             <b-collapse id="collapse-1" class="mt-2">
-              <img
-                :src="require('../assets/worker.svg')"
-                :width="150"
-              />
+              <img :src="require('../assets/worker.svg')" :width="150" />
               <h2>Employment Details</h2>
               <p>Fill out the following form about your employment</p>
               <formulate-input
@@ -273,7 +264,7 @@
                   halfTime: 'Half-time',
                   fullTime: 'Full-time',
                   onCall: 'On-call or freelance',
-                  none: 'Not Applicable'
+                  none: 'Not Applicable',
                 }"
                 validation="required"
               />
@@ -296,7 +287,7 @@
                   remote: 'Remote (working from home)',
                   atOffice: 'At the office',
                   halfhalf: 'Partially remote, partially at the office',
-                  none: 'Not Applicable'
+                  none: 'Not Applicable',
                 }"
                 validation="required"
               />
@@ -355,14 +346,10 @@
               >Click here if you are currently in school</b-button
             >
             <b-collapse id="collapse-3" class="mt-2">
-              <img
-                :src="require('../assets/school.svg')"
-                :width="150"
-              />
+              <img :src="require('../assets/school.svg')" :width="150" />
               <h2>School Details</h2>
               <p>
-                Fill out the following form about your details related to
-                school
+                Fill out the following form about your details related to school
               </p>
               <formulate-input
                 name="school_type"
@@ -421,14 +408,11 @@
           <!-- Start Travel Form -->
           <div class="travel_form inputs">
             <b-button v-b-toggle.collapse-2 variant="primary"
-              >Click here if you have traveled domestically or internationally in the
-              last 14 days</b-button
+              >Click here if you have traveled domestically or internationally
+              in the last 14 days</b-button
             >
             <b-collapse id="collapse-2" class="mt-2">
-              <img
-                :src="require('../assets/globe.svg')"
-                :width="150"
-              />
+              <img :src="require('../assets/globe.svg')" :width="150" />
               <h2>Travel Details</h2>
               <p>
                 Fill out the following form about your recent travel, if
@@ -488,8 +472,7 @@
                     'Travel from another country, a U.S. state, or a county (according to state data) where COVID-19 transmission is high or increasing',
                   social_gathering:
                     'Attendance at large social or mass gatherings',
-                  cruise_ship:
-                    'Travel on a cruise ship or river boat',
+                  cruise_ship: 'Travel on a cruise ship or river boat',
                   none: `Not applicable, I didn't travel`,
                 }"
               />
@@ -544,9 +527,6 @@ export default {
     }
   },
   methods: {
-    // seeJson(payload) {
-    //   this.json = payload;
-    // },
     getAddress() {
       let autocomplete = new window.google.maps.places.Autocomplete(
         this.$refs.search
@@ -566,6 +546,7 @@ export default {
         for (i = 0; i < values.length; i++) {
           if (values[i].email == this.$auth.user.email) {
             this.formValues = values[i].form;
+            this.formValues.email = values[i].email;
           }
         }
       } catch (err) {
