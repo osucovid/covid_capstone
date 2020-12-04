@@ -3,6 +3,10 @@
     <b-card-group deck>
       <b-card bg-variant="light" title="Shopping Recommendation" img-alt="Image" img-top>
         <b-card-text>
+          <p><img
+            :src="require('../../assets/shopping-basket.svg')"
+            :width="75"
+          /></p>
           {{ message }}
         </b-card-text>
         <template v-slot:footer>
@@ -40,10 +44,10 @@ export default {
       } catch(err){
         this.error = err.message;
       }
-        if(this.posts.form.social_distancing_q5 != "Yes"){
+        if(this.posts.form.social_distancing_q5 == "no"){
             this.message = "Please try to not go to stores unless absolutely necessary. Try using InstaCart to order grocery/household items whenever necessary."
         }
-        else{
+        if(this.posts.form.social_distancing_q5 == "yes"){
             this.message = "You are doing an awesome job! Continue only visiting stores when absolutely necessary!";
         }
     },

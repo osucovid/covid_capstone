@@ -3,32 +3,30 @@
     <b-card-group deck>
       <b-card bg-variant="light" title="Overall Risk" img-alt="Image" img-top>
         <b-card-text>
-          {{ riskStatus }}
+          <h2>{{ riskStatus }}</h2>
           <p v-if="riskStatus == 'Low'">
             <b-icon
               icon="exclamation-circle-fill"
               variant="success"
-              style="width: 200px; height: 200px;"
+              style="width: 150px; height: 150px;"
             ></b-icon>
           </p>
           <p v-if="riskStatus == 'Moderate'">
             <b-icon
               icon="exclamation-circle-fill"
               variant="warning"
-              style="width: 200px; height: 200px;"
+              style="width: 150px; height: 150px;"
             ></b-icon>
           </p>
           <p v-if="riskStatus == 'High'">
             <b-icon
               icon="exclamation-circle-fill"
               variant="danger"
-              style="width: 200px; height: 200px;"
+              style="width: 150px; height: 150px;"
             ></b-icon>
           </p>
 
-          <br />
-
-          {{ pointsMessage }}
+          <strong>{{ pointsMessage }}</strong>
           <br />
           {{ message }}
         </b-card-text>
@@ -41,6 +39,10 @@
     <b-card-group deck>
       <b-card bg-variant="light" title="Age Risk" img-alt="Image" img-top>
         <b-card-text>
+          <p><img
+            :src="require('../../assets/old-woman.svg')"
+            :width="75"
+          /></p>
           {{ ageMessage }}
         </b-card-text>
         <template v-slot:footer>
@@ -55,6 +57,10 @@
         img-top
       >
         <b-card-text>
+          <p><img
+            :src="require('../../assets/face-mask.svg')"
+            :width="75"
+          /></p>
           {{ maskMessage }}
         </b-card-text>
         <template v-slot:footer>
@@ -83,6 +89,10 @@
               style="width: 100px; height: 100px;"
             ></b-icon>
           </p>--->
+          <p><img
+            :src="require('../../assets/heartbeat.svg')"
+            :width="75"
+          /></p>
           {{ medMessage }}
         </b-card-text>
         <template v-slot:footer>
@@ -97,6 +107,10 @@
         img-top
       >
         <b-card-text>
+          <p><img
+            :src="require('../../assets/social-distancing.svg')"
+            :width="75"
+          /></p>
           {{ socialMessage }}
         </b-card-text>
         <template v-slot:footer>
@@ -108,6 +122,10 @@
     <b-card-group deck>
       <b-card bg-variant="light" title="Work Risk" img-alt="Image" img-top>
         <b-card-text>
+          <p><img
+            :src="require('../../assets/worker.svg')"
+            :width="75"
+          /></p>
           {{ workMessage }}
         </b-card-text>
         <template v-slot:footer>
@@ -117,6 +135,10 @@
 
       <b-card bg-variant="light" title="School Risk" img-alt="Image" img-top>
         <b-card-text>
+          <p><img
+            :src="require('../../assets/school.svg')"
+            :width="75"
+          /></p>
           {{ schoolMessage }}
         </b-card-text>
         <template v-slot:footer>
@@ -126,6 +148,10 @@
 
       <b-card bg-variant="light" title="Travel Risk" img-alt="Image" img-top>
         <b-card-text>
+          <p><img
+            :src="require('../../assets/globe.svg')"
+            :width="75"
+          /></p>
           {{ travelMessage }}
         </b-card-text>
         <template v-slot:footer>
@@ -188,14 +214,14 @@ export default {
       if (this.posts.form.age >= 65 && this.posts.form.age < 75) {
         totalPoints += 20;
         this.ageMessage =
-          "You are at high risk because you are between the ages of 65 and 75.";
+          "You are at high risk because you are between the ages of 65 and 74.";
         highRiskCategories += 1;
       }
 
       if (this.posts.form.age >= 45 && this.posts.form.age < 65) {
         totalPoints += 10;
         this.ageMessage =
-          "You are at moderate risk since you are between the ages of 45 and 65.";
+          "You are at moderate risk since you are between the ages of 45 and 64.";
       }
 
       if (this.posts.form.age < 45) {
@@ -237,7 +263,7 @@ export default {
 
       if (this.posts.form.health_conditions_check[0] == "none") {
         this.medMessage =
-          "You are at low risk because you didn't list any high-risk medical conditions.";
+          "You are at low risk because you didn't list any high-risk medical conditions associated with serious COVID-19 cases.";
       }
 
       console.log(" med points: " + totalPoints);
@@ -315,7 +341,7 @@ export default {
 
       if (socialPoints >= 10) {
         this.socialMessage =
-          "You are at moderate risk because you are not taking measures to socially distance from friends, family, and people in public.";
+          "You are at moderate risk because you are not taking measures to socially distance from people outside of your household.";
       }
 
       if (socialPoints < 10 && socialPoints > 0) {
@@ -367,7 +393,7 @@ export default {
 
       if (workPoints >= 5) {
         this.workMessage =
-          "You are at moderate risk because of your work situation, which includes contact with many people or people potentially ill with COVID-19.";
+          "You are at moderate risk because of your work situation, which includes contact with many people and/or people potentially ill with COVID-19.";
       }
 
       if (workPoints == 0) {

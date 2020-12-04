@@ -3,6 +3,10 @@
     <b-card-group deck>
       <b-card bg-variant="light" title="Mask Recommendation" img-alt="Image" img-top>
         <b-card-text>
+          <p><img
+            :src="require('../../assets/face-mask.svg')"
+            :width="75"
+          /></p>
           {{ message }}
         </b-card-text>
         <template v-slot:footer>

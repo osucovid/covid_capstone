@@ -3,11 +3,11 @@
   <div id = "text">
     <h1>Curious about your risk for catching <strong>COVID-19</strong>?</h1>
 
-      <p>With so much brand (and often conflicting) new information about the COVID-19 pandemic, people are overwhelmed with the amount of data and advice provided by the media.</p>
+      <p>With so much brand new (and often conflicting) information about the COVID-19 pandemic, people are overwhelmed with the amount of data and advice provided by the media.</p>
 
       <p><strong>Fill out a few questions and our app will help you evaluate your risk for COVID-19 based on your past and present behavior.</strong> We will compare your activity with publicly available data and current recommendations from researchers and public health departments.</p>
 
-      <p><a href="/todaysdata">Begin by registering for account or filling out a daily assessment form</a>!</p>
+      <p><strong><a href="/todaysdata">Begin by registering for account or filling out a daily assessment form</a></strong>!</p>
   </div>
 
   <div id = "break"></div>

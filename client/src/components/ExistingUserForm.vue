@@ -6,8 +6,12 @@
         <!-- <formulate-input> not <FormulateInput> as stated in the docs-->
         <!-- <formulate-form> not <FormulateForm> as stated in the docs-->
         <formulate-form v-model="formValues">
+          <img
+            :src="require('../assets/form-icon.svg')"
+            :width="150"
+          />
           <h2 class="form-title">
-            COVID19 Risk Assessment Form
+            COVID-19 Risk Assessment Form
           </h2>
           <p>
             Edit or update the following form to receive a personalized risk
@@ -26,7 +30,7 @@
             type="email"
             label="Email address"
             help="We'll never share your email with anyone else."
-            placeholder="Your address"
+            placeholder="Your email address"
             validation="required|email"
           />
           <div class="location_finder">
@@ -59,9 +63,13 @@
 
           <!-- Start Daily Details Form -->
           <div class="basic_details inputs">
+          <img
+            :src="require('../assets/heartbeat.svg')"
+            :width="150"
+          />          
             <h2>Basic Details</h2>
             <p>
-              Enter basic details regarding COVID19
+              Enter basic details about your health and routines
             </p>
             <formulate-input
               name="mask_wearing_percentage"
@@ -81,7 +89,7 @@
             <formulate-input
               name="covid_symptom_check"
               type="select"
-              label="Do you currently have COVID19 symptoms?"
+              label="Do you currently have COVID-19 symptoms?"
               placeholder="Select one"
               :options="{
                 yes: 'Yes',
@@ -96,7 +104,7 @@
               :options="{
                 cancer: 'I have Cancer',
                 ckd: 'I have Chronic Kidney Disease',
-                copd: 'I have COPD',
+                copd: 'I have COPD (Chronic obstructive pulmonary disease)',
                 heart: 'I have Heart Condition(s)',
                 immuno: 'I am Immunocompromised',
                 obsese: 'I am Obese',
@@ -105,28 +113,33 @@
                 type2d: 'I have Type 2 Diabetes',
                 none: 'I have none of these high-risk health conditions',
               }"
+              validation="required"
             />
           </div>
           <!-- End Basic Details Form -->
 
           <!-- Start Social Distancing Details Form -->
           <div class="social_distancing inputs">
+          <img
+            :src="require('../assets/social-distancing.svg')"
+            :width="150"
+          />
             <h2>Social Distancing Details</h2>
             <p>
               Answer the following questions about your social distancing
-              efforts.
+              efforts
             </p>
 
             <formulate-input
               name="social_distancing_q1"
               type="select"
-              label="Do you avoid contact with people at higher risk for severe illness from COVID-19"
+              label="Do you avoid contact with people at higher risk for severe illness from COVID-19?"
               placeholder="Select one"
               :options="{
                 1: 'Always',
                 2: 'Mostly',
                 3: 'Usually',
-                4: 'Somtimes',
+                4: 'Sometimes',
                 5: 'Never',
               }"
               validation="required"
@@ -149,7 +162,7 @@
             <formulate-input
               name="social_distancing_q2"
               type="radio"
-              label="When using public transit, do you try to keep at least 6 feet from other passengers or transit operators?"
+              label="When using public transit, do you try to keep at least 6 feet from other passengers and transit operators?"
               :options="{
                 yes: 'Yes',
                 no: 'No',
@@ -219,7 +232,7 @@
             <formulate-input
               name="social_distancing_q8"
               type="radio"
-              label="If meeting others in person (e.g., at small outdoor gatherings, yard or driveway gathering with a small group of friends or family members), do you stay at least 6 feet from others who are not from your household?"
+              label="If meeting others in person (e.g., at small outdoor gatherings, yard, or driveway gathering with a small group of friends or family members), do you stay at least 6 feet from others who are not from your household?"
               :options="{
                 yes: 'Yes',
                 no: 'No',
@@ -245,8 +258,12 @@
               >Click here if you are currently employed</b-button
             >
             <b-collapse id="collapse-1" class="mt-2">
+              <img
+                :src="require('../assets/worker.svg')"
+                :width="150"
+              />
               <h2>Employment Details</h2>
-              <p>Fill out the following form about your employment.</p>
+              <p>Fill out the following form about your employment</p>
               <formulate-input
                 name="employment_type"
                 type="select"
@@ -291,9 +308,9 @@
                 :options="{
                   noContact: 'None',
                   infrequent:
-                    'Infrequent (Those workers who do not have frequent close contact with coworkers, customers, or the public)',
+                    'Infrequent - I do not have frequent close contact with coworkers, customers, or the public)',
                   frequent:
-                    'Frequent (Those who may have contact with the general public (e.g., in schools, high population density work environments, and some high-volume retail settings)',
+                    'Frequent - I have contact with the general public (e.g., in schools, high population density work environments, and some high-volume retail settings)',
                 }"
                 validation="required"
               />
@@ -318,13 +335,13 @@
                 placeholder="Select one"
                 :options="{
                   no_contact:
-                    'Do not require contact with people known to be, or suspected of being, infected with SARS-CoV-2',
+                    'My work does not require contact with people known to be, or suspected of being, infected with SARS-CoV-2',
                   some_contact:
-                    'Jobs that require frequent/close contact with people who may be infected, but who are not known to have or suspected of having COVID-19.',
+                    'My work requires some frequent/close contact with people who may be infected, but who are not known to have or suspected of having COVID-19.',
                   high_contact:
-                    'Healthcare delivery and support staff (hospital staff who must enter patients’ rooms) exposed to known or suspected COVID-19 patients.',
+                    'I work in healthcare and/or with healthcare delivery and support staff (hospital staff who must enter patients’ rooms) exposed to known or suspected COVID-19 patients.',
                   very_high_contact:
-                    'Jobs with a very high potential for exposure to known or suspected sources of SARS-CoV-2 during specific medical, postmortem, or laboratory procedures.',
+                    'My job includes a very high potential for exposure to known or suspected sources of SARS-CoV-2 during specific medical, postmortem, or laboratory procedures.',
                 }"
                 validation="required"
               />
@@ -338,10 +355,14 @@
               >Click here if you are currently in school</b-button
             >
             <b-collapse id="collapse-3" class="mt-2">
+              <img
+                :src="require('../assets/school.svg')"
+                :width="150"
+              />
               <h2>School Details</h2>
               <p>
                 Fill out the following form about your details related to
-                school.
+                school
               </p>
               <formulate-input
                 name="school_type"
@@ -400,14 +421,18 @@
           <!-- Start Travel Form -->
           <div class="travel_form inputs">
             <b-button v-b-toggle.collapse-2 variant="primary"
-              >Click here if have traveled domestically or internationally the
+              >Click here if you have traveled domestically or internationally in the
               last 14 days</b-button
             >
             <b-collapse id="collapse-2" class="mt-2">
+              <img
+                :src="require('../assets/globe.svg')"
+                :width="150"
+              />
               <h2>Travel Details</h2>
               <p>
                 Fill out the following form about your recent travel, if
-                applicable.
+                applicable
               </p>
               <formulate-input
                 name="travel_type"
@@ -464,8 +489,7 @@
                   social_gathering:
                     'Attendance at large social or mass gatherings',
                   cruise_ship:
-                    'Healthcare delivery and support staff (hospital staff who must enter patients’ rooms) exposed to known or suspected COVID-19 patients.',
-                  very_high_contact: 'Travel on a cruise ship or river boat',
+                    'Travel on a cruise ship or river boat',
                   none: `Not applicable, I didn't travel`,
                 }"
               />
@@ -473,8 +497,10 @@
           </div>
           <!-- End Workplace Form -->
 
+          <!-- JSON below used for testing
+
           <pre class="code" v-text="formValues" />
-          <pre class="code" v-text="location" />
+          <pre class="code" v-text="location" />-->
 
           <formulate-input
             type="submit"

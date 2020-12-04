@@ -17,9 +17,8 @@
             <strong>How do I use the Risk Assessment Tool?</strong>
             <ol>
               <li>
-                Sign up for account by clicking on the "Sign in to see
-                personalized risk assessment" button found on the home page. You
-                will be directed to enter in your email address.
+                Sign up for an account by clicking on the "Sign in to see
+                personalized risk assessment" button found on the home page, or go to the navigation bar at top and click User > Sign In. You will be directed to enter in your email address.
               </li>
               <li>
                 You will then fill out a user form, to establish risk variables
@@ -28,7 +27,7 @@
               <li>
                 Fill out a Daily Data form - see the link in the navigation bar.
                 You will be asked about what activities you have done in the
-                last month. This will give us a picture of your routine.
+                last month. This will give us a picture of your routine and present health.
               </li>
               <li>
                 Go to the dashboard and see your results. You will be offered
@@ -38,8 +37,8 @@
             </ol>
             <strong>What technologies does your site use?</strong>
             <p>
-              We use JavaScript, d3.js, HTML, CSS, NodeJS, Git, Express, MySQL,
-              VueJS, MongoDB, and Auth0.
+              We use JavaScript, HTML, CSS, NodeJS, Git, Express, MySQL,
+              VueJS, MongoDB, d3.js, and Auth0.
             </p>
             <strong>What is your data policy?</strong>
             <p>
@@ -285,8 +284,12 @@
                   href="https://www.flaticon.com/authors/freepik"
                   title="Freepik"
                   >Freepik</a
-                >
-                and
+                >,
+                <a
+                  href="https://www.flaticon.com/authors/surang" 
+                  title="surang"
+                  >surang</a
+                >,
                 <a
                   href="https://www.flaticon.com/authors/vectors-market"
                   title="Vectors Market"
