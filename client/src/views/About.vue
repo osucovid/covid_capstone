@@ -1,6 +1,5 @@
 <template>
   <div class="about">
-    <Guide />
     <Resources />
   </div>
 </template>

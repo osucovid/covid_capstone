@@ -131,4 +131,10 @@ export default {
 .risk_assess .card-deck {
   /* min-width: 80%; */
 }
+
+@media (max-width: 1000px) {
+  .risk_assess {
+    display: block;
+  }
+}
 </style>

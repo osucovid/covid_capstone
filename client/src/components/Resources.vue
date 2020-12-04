@@ -18,27 +18,32 @@
             <ol>
               <li>
                 Sign up for an account by clicking on the "Sign in to see
-                personalized risk assessment" button found on the home page, or go to the navigation bar at top and click User > Sign In. You will be directed to enter in your email address.
+                personalized risk assessment" button found on the home page, or
+                go to the navigation bar at top and click User > Sign In. You
+                will be directed to enter in your email address.
               </li>
               <li>
                 You will then fill out a user form, to establish risk variables
-                such as age and pre-existing medical conditions.
-              </li>
-              <li>
-                Fill out a Daily Data form - see the link in the navigation bar.
-                You will be asked about what activities you have done in the
-                last month. This will give us a picture of your routine and present health.
+                such as age and pre-existing medical conditions. You will also
+                answer questions regarding your social distancing and other
+                activities you have done in the last month. This will give us a
+                picture of your routine and present health.
               </li>
               <li>
                 Go to the dashboard and see your results. You will be offered
                 recommendations as to how you can reduce your risk of developing
                 a serious case of COVID-19.
               </li>
+              <li>
+                If there are changes in your lifestyle, habits, or have traveled
+                recently, you can go back to the "My Data" page and edit your
+                details to get an updated and recalculated risk assessment.
+              </li>
             </ol>
             <strong>What technologies does your site use?</strong>
             <p>
-              We use JavaScript, HTML, CSS, NodeJS, Git, Express, MySQL,
-              VueJS, MongoDB, d3.js, and Auth0.
+              We use JavaScript, HTML, CSS, NodeJS, Git, Express, MySQL, VueJS,
+              MongoDB, d3.js, and Auth0.
             </p>
             <strong>What is your data policy?</strong>
             <p>
@@ -179,6 +184,32 @@
                   Assessment Planning Tool</a
                 >
               </li>
+              <li>
+                <a
+                  href="https://www.osha.gov/SLTC/covid-19/hazardrecognition.html"
+                  >Occupational Safety and Health Administration - COVID-19 -
+                  Hazard Recognition
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.cdc.gov/coronavirus/2019-ncov/php/risk-assessment.html"
+                  >CDC - Public Health Guideline for Potential COVID-19 Exposure
+                  Associated with International or Domestic Travel
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/social-distancing.html"
+                  >CDC - Public Health Guidance for Community-Related Exposure
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html"
+                  >CDC - How to Protect Yourself & Others
+                </a>
+              </li>
             </ul>
 
             <h2>Research Articles Consulted</h2>
@@ -285,9 +316,7 @@
                   title="Freepik"
                   >Freepik</a
                 >,
-                <a
-                  href="https://www.flaticon.com/authors/surang" 
-                  title="surang"
+                <a href="https://www.flaticon.com/authors/surang" title="surang"
                   >surang</a
                 >,
                 <a
@@ -306,7 +335,10 @@
           <div id="card">
             <h2>Share on Social Networks</h2>
             <p>Like our site? Share it:</p>
-              <share-it :icons="true" :targets="['twitter', 'facebook', 'linkedin', 'reddit']" />
+            <share-it
+              :icons="true"
+              :targets="['twitter', 'facebook', 'linkedin', 'reddit']"
+            />
           </div>
         </div>
       </div>

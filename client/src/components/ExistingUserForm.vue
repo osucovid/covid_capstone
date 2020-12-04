@@ -247,236 +247,252 @@
           <!-- End Basic Details Form -->
 
           <!-- Start Workplace Form -->
-          <div class="employed_form inputs">
-            <b-button v-b-toggle.collapse-1 variant="primary"
+          <div class="employed_form inputs" id="workplace-form">
+            <!-- <b-button v-b-toggle.collapse-1 variant="primary"
               >Click here if you are currently employed</b-button
             >
-            <b-collapse id="collapse-1" class="mt-2">
-              <img :src="require('../assets/worker.svg')" :width="150" />
-              <h2>Employment Details</h2>
-              <p>Fill out the following form about your employment</p>
-              <formulate-input
-                name="employment_type"
-                type="select"
-                label="Employment Type"
-                placeholder="Select an employment type"
-                :options="{
-                  halfTime: 'Half-time',
-                  fullTime: 'Full-time',
-                  onCall: 'On-call or freelance',
-                  none: 'Not Applicable',
-                }"
-                validation="required"
-              />
-              <formulate-input
-                label="How many hours a day do you spend away from home?"
-                type="range"
-                name="hours"
-                min="0"
-                max="24"
-                show-value="8"
-                validation="required|min:0|max:24"
-                error-behavior="live"
-              />
-              <formulate-input
-                name="workplace_type"
-                type="select"
-                label="Workplace Type"
-                placeholder="Select a workplace type"
-                :options="{
-                  remote: 'Remote (working from home)',
-                  atOffice: 'At the office',
-                  halfhalf: 'Partially remote, partially at the office',
-                  none: 'Not Applicable',
-                }"
-                validation="required"
-              />
-              <formulate-input
-                name="contact_frequency"
-                type="select"
-                label="Contact Frequency"
-                placeholder="Select frequency type"
-                :options="{
-                  noContact: 'None',
-                  infrequent:
-                    'Infrequent - I do not have frequent close contact with coworkers, customers, or the public)',
-                  frequent:
-                    'Frequent - I have contact with the general public (e.g., in schools, high population density work environments, and some high-volume retail settings)',
-                }"
-                validation="required"
-              />
-              <formulate-input
-                name="people_encountered"
-                type="select"
-                placeholder="Select one"
-                label="How many people do you encounter on an average day? "
-                :options="{
-                  1: 'None',
-                  2: '1-5',
-                  3: '6-10',
-                  4: '11-20',
-                  5: '20 or more',
-                }"
-                validation="required"
-              />
-              <formulate-input
-                name="contact_type"
-                type="checkbox"
-                label="Contact Type"
-                placeholder="Select one"
-                :options="{
-                  no_contact:
-                    'My work does not require contact with people known to be, or suspected of being, infected with SARS-CoV-2',
-                  some_contact:
-                    'My work requires some frequent/close contact with people who may be infected, but who are not known to have or suspected of having COVID-19.',
-                  high_contact:
-                    'I work in healthcare and/or with healthcare delivery and support staff (hospital staff who must enter patients’ rooms) exposed to known or suspected COVID-19 patients.',
-                  very_high_contact:
-                    'My job includes a very high potential for exposure to known or suspected sources of SARS-CoV-2 during specific medical, postmortem, or laboratory procedures.',
-                }"
-                validation="required"
-              />
-            </b-collapse>
+            <b-collapse id="collapse-1" class="mt-2"> -->
+            <img :src="require('../assets/worker.svg')" :width="150" />
+
+            <h2>Employment Details</h2>
+            <p>Fill out the following form about your employment</p>
+            <div class="skip_button">
+              <b-button href="#student-form"
+                >Skip this form if not applicable</b-button
+              >
+            </div>
+            <formulate-input
+              name="employment_type"
+              type="select"
+              label="Employment Type"
+              placeholder="Select an employment type"
+              :options="{
+                halfTime: 'Half-time',
+                fullTime: 'Full-time',
+                onCall: 'On-call or freelance',
+                none: 'Not Applicable',
+              }"
+              validation="required"
+            />
+            <formulate-input
+              label="How many hours a day do you spend away from home?"
+              type="range"
+              name="hours"
+              min="0"
+              max="24"
+              show-value="8"
+              validation="required|min:0|max:24"
+              error-behavior="live"
+            />
+            <formulate-input
+              name="workplace_type"
+              type="select"
+              label="Workplace Type"
+              placeholder="Select a workplace type"
+              :options="{
+                remote: 'Remote (working from home)',
+                atOffice: 'At the office',
+                halfhalf: 'Partially remote, partially at the office',
+                none: 'Not Applicable',
+              }"
+              validation="required"
+            />
+            <formulate-input
+              name="contact_frequency"
+              type="select"
+              label="Contact Frequency"
+              placeholder="Select frequency type"
+              :options="{
+                noContact: 'None',
+                infrequent:
+                  'Infrequent - I do not have frequent close contact with coworkers, customers, or the public)',
+                frequent:
+                  'Frequent - I have contact with the general public (e.g., in schools, high population density work environments, and some high-volume retail settings)',
+              }"
+              validation="required"
+            />
+            <formulate-input
+              name="people_encountered"
+              type="select"
+              placeholder="Select one"
+              label="How many people do you encounter on an average day? "
+              :options="{
+                1: 'None',
+                2: '1-5',
+                3: '6-10',
+                4: '11-20',
+                5: '20 or more',
+              }"
+              validation="required"
+            />
+            <formulate-input
+              name="contact_type"
+              type="checkbox"
+              label="Contact Type"
+              placeholder="Select one"
+              :options="{
+                no_contact:
+                  'My work does not require contact with people known to be, or suspected of being, infected with SARS-CoV-2',
+                some_contact:
+                  'My work requires some frequent/close contact with people who may be infected, but who are not known to have or suspected of having COVID-19.',
+                high_contact:
+                  'I work in healthcare and/or with healthcare delivery and support staff (hospital staff who must enter patients’ rooms) exposed to known or suspected COVID-19 patients.',
+                very_high_contact:
+                  'My job includes a very high potential for exposure to known or suspected sources of SARS-CoV-2 during specific medical, postmortem, or laboratory procedures.',
+              }"
+              validation="required"
+            />
+            <!-- </b-collapse> -->
           </div>
           <!-- End Workplace Form -->
 
           <!-- Start Student Form -->
-          <div class="student_form inputs">
-            <b-button v-b-toggle.collapse-3 variant="primary"
+          <div class="student_form inputs" id="student-form">
+            <!-- <b-button v-b-toggle.collapse-3 variant="primary"
               >Click here if you are currently in school</b-button
             >
-            <b-collapse id="collapse-3" class="mt-2">
-              <img :src="require('../assets/school.svg')" :width="150" />
-              <h2>School Details</h2>
-              <p>
-                Fill out the following form about your details related to school
-              </p>
-              <formulate-input
-                name="school_type"
-                type="select"
-                label="Are your classes remote or in-person?"
-                placeholder="Select one"
-                :options="{
-                  remote: 'Remote',
-                  inPerson: 'In-person',
-                  halfnhalf: 'Half and half',
-                  none: 'Not Applicable',
-                }"
-                validation="required"
-              />
-              <formulate-input
-                label="How many hours a day do you spend away from home?"
-                type="range"
-                name="hours"
-                min="0"
-                max="24"
-                value="8"
-                show-value="8"
-                validation="required|min:0|max:24"
-                error-behavior="live"
-              />
-              <formulate-input
-                name="school_contact_frequency"
-                type="select"
-                label="Contact Frequency with Other Students"
-                placeholder="Select one"
-                :options="{
-                  noContact: 'None',
-                  infrequent: 'Infrequent ',
-                  frequent: 'Frequent ',
-                }"
-                validation="required"
-              />
-              <formulate-input
-                name="school_people_encountered"
-                type="select"
-                label="How many people do you encounter on an average day? "
-                placeholder="Select one"
-                :options="{
-                  1: 'None',
-                  2: '1-5',
-                  3: '6-10',
-                  4: '11-20',
-                  5: '20 or more',
-                }"
-                validation="required"
-              />
-            </b-collapse>
+            <b-collapse id="collapse-3" class="mt-2"> -->
+            <img :src="require('../assets/school.svg')" :width="150" />
+            <h2>School Details</h2>
+            <p>
+              Fill out the following form about your details related to school
+            </p>
+            <div class="skip_button">
+              <b-button href="#travel-form"
+                >Skip this form if not applicable</b-button
+              >
+            </div>
+            <formulate-input
+              name="school_type"
+              type="select"
+              label="Are your classes remote or in-person?"
+              placeholder="Select one"
+              :options="{
+                remote: 'Remote',
+                inPerson: 'In-person',
+                halfnhalf: 'Half and half',
+                none: 'Not Applicable',
+              }"
+              validation="required"
+            />
+            <formulate-input
+              label="How many hours a day do you spend away from home?"
+              type="range"
+              name="hours"
+              min="0"
+              max="24"
+              value="8"
+              show-value="8"
+              validation="required|min:0|max:24"
+              error-behavior="live"
+            />
+            <formulate-input
+              name="school_contact_frequency"
+              type="select"
+              label="Contact Frequency with Other Students"
+              placeholder="Select one"
+              :options="{
+                noContact: 'None',
+                infrequent: 'Infrequent ',
+                frequent: 'Frequent ',
+              }"
+              validation="required"
+            />
+            <formulate-input
+              name="school_people_encountered"
+              type="select"
+              label="How many people do you encounter on an average day? "
+              placeholder="Select one"
+              :options="{
+                1: 'None',
+                2: '1-5',
+                3: '6-10',
+                4: '11-20',
+                5: '20 or more',
+              }"
+              validation="required"
+            />
+            <!-- </b-collapse> -->
           </div>
           <!-- End Student Form -->
 
           <!-- Start Travel Form -->
-          <div class="travel_form inputs">
-            <b-button v-b-toggle.collapse-2 variant="primary"
+          <div class="travel_form inputs" id="travel-form">
+            <!-- <b-button v-b-toggle.collapse-2 variant="primary"
               >Click here if you have traveled domestically or internationally
               in the last 14 days</b-button
             >
-            <b-collapse id="collapse-2" class="mt-2">
-              <img :src="require('../assets/globe.svg')" :width="150" />
-              <h2>Travel Details</h2>
-              <p>
-                Fill out the following form about your recent travel, if
-                applicable
-              </p>
-              <formulate-input
-                name="travel_type"
-                type="radio"
-                label="Travel Type"
-                placeholder="Select a travel type"
-                :options="{
-                  domestic: 'Domestic',
-                  international: 'International',
-                  none: 'N/A',
-                }"
-                validation="required"
-              />
-              <formulate-input
-                name="travel_details_social_distancing"
-                type="radio"
-                label="During your travels, did you practice social distancing (maintain a distance of 6 feet)?"
-                :options="{
-                  yes: 'Yes',
-                  no: 'No',
-                  none: 'N/A',
-                }"
-                validation="required"
-              />
-              <formulate-input
-                name="travel_details_wear_mask"
-                type="radio"
-                label="During your travels, did you wear a face covering?"
-                :options="{
-                  yes: 'Yes',
-                  no: 'No',
-                  none: 'N/A',
-                }"
-                validation="required"
-              />
-              <formulate-input
-                name="travel_details"
-                type="radio"
-                label="During your travels, did you wash your hands frequently?"
-                :options="{
-                  yes: 'Yes',
-                  no: 'No',
-                  none: 'N/A',
-                }"
-                validation="required"
-              />
-              <formulate-input
-                name="travel_from"
-                type="checkbox"
-                label="Were you in situations with potentially higher risk of exposure such as"
-                :options="{
-                  travel_from:
-                    'Travel from another country, a U.S. state, or a county (according to state data) where COVID-19 transmission is high or increasing',
-                  social_gathering:
-                    'Attendance at large social or mass gatherings',
-                  cruise_ship: 'Travel on a cruise ship or river boat',
-                  none: `Not applicable, I didn't travel`,
-                }"
-              />
-            </b-collapse>
+            <b-collapse id="collapse-2" class="mt-2"> -->
+            <img :src="require('../assets/globe.svg')" :width="150" />
+            <h2>Travel Details</h2>
+            <p>
+              Fill out the following form about your recent travel, if
+              applicable
+            </p>
+            <div class="skip_button">
+              <b-button href="#submit-button"
+                >Skip this form if not applicable</b-button
+              >
+            </div>
+            <formulate-input
+              name="travel_type"
+              type="radio"
+              label="Travel Type"
+              placeholder="Select a travel type"
+              :options="{
+                domestic: 'Domestic',
+                international: 'International',
+                none: 'N/A',
+              }"
+              validation="required"
+            />
+            <formulate-input
+              name="travel_details_social_distancing"
+              type="radio"
+              label="During your travels, did you practice social distancing (maintain a distance of 6 feet)?"
+              :options="{
+                yes: 'Yes',
+                no: 'No',
+                none: 'N/A',
+              }"
+              validation="required"
+            />
+            <formulate-input
+              name="travel_details_wear_mask"
+              type="radio"
+              label="During your travels, did you wear a face covering?"
+              :options="{
+                yes: 'Yes',
+                no: 'No',
+                none: 'N/A',
+              }"
+              validation="required"
+            />
+            <formulate-input
+              name="travel_details"
+              type="radio"
+              label="During your travels, did you wash your hands frequently?"
+              :options="{
+                yes: 'Yes',
+                no: 'No',
+                none: 'N/A',
+              }"
+              validation="required"
+            />
+            <formulate-input
+              name="travel_from"
+              type="checkbox"
+              label="Were you in situations with potentially higher risk of exposure such as"
+              :options="{
+                travel_from:
+                  'Travel from another country, a U.S. state, or a county (according to state data) where COVID-19 transmission is high or increasing',
+                social_gathering:
+                  'Attendance at large social or mass gatherings',
+                cruise_ship: 'Travel on a cruise ship or river boat',
+                none: `Not applicable, I didn't travel`,
+              }"
+            />
+            <!-- </b-collapse> -->
           </div>
           <!-- End Workplace Form -->
 
@@ -489,6 +505,7 @@
             type="submit"
             label="Submit Form"
             v-on:click="submit"
+            id="submit-button"
           />
         </formulate-form>
       </article>
@@ -602,6 +619,9 @@ export default {
 }
 </style>
 <style>
+html {
+  scroll-behavior: smooth;
+}
 .location_finder .input {
   position: relative;
   width: 100%;
@@ -700,5 +720,46 @@ export default {
 }
 .formulate-input[data-classification="box"] .formulate-input-element {
   overflow: visible;
+}
+.formulate-input[data-classification="button"] button {
+  margin: 40px 0 60px;
+  font-size: 1.9em;
+  width: 228px;
+  height: 85px;
+}
+.formulate-input[data-classification="button"] button:hover {
+  background-color: #0ef88f;
+  border-color: #0ef88f;
+}
+.new_user_form img {
+  padding: 40px 0;
+}
+.skip_button {
+  margin: 20px 0;
+}
+.skip_button .btn-secondary {
+  background-color: #97ffd1;
+  border-color: #97ffd1;
+  color: black;
+}
+.skip_button .btn-secondary:hover {
+  background-color: #2549e9;
+  border-color: #2549e9;
+  color: #fff;
+}
+
+@media (max-width: 576px) {
+  .container,
+  .container-sm {
+    width: 460px;
+    padding: 10px 0;
+  }
+}
+@media (max-width: 406px) {
+  .container,
+  .container-sm {
+    width: 420px;
+    padding: 10px 5px;
+  }
 }
 </style>
