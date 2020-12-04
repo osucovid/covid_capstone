@@ -7,7 +7,7 @@
       class="list-group-item"
       v-bind:key="index"
     >
-      {{ index }}, {{ hospital.name }}, {{ hospital.address }}
+      {{ index + 1 }}. {{ hospital.name }} {{ hospital.address }}
     </li>
     <!-- <li class="list-group-item">Dapibus ac facilisis in</li>
     <li class="list-group-item">Vestibulum at eros</li> -->

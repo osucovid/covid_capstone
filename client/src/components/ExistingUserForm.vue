@@ -755,11 +755,28 @@ html {
     padding: 10px 0;
   }
 }
-@media (max-width: 406px) {
+@media (max-width: 450px) {
   .container,
   .container-sm {
-    width: 420px;
+    width: 400px;
     padding: 10px 5px;
+    margin: 0;
+  }
+}
+@media (max-width: 360px) {
+  .container,
+  .container-sm {
+    width: 360px;
+    padding: 10px 2px;
+    margin: 0 auto;
+  }
+  .new_user_form {
+    position: relative;
+    margin: 0 auto;
+    padding: 10px 10px;
+  }
+  .inputs {
+    padding: 5px 5px;
   }
 }
 </style>

@@ -101,4 +101,10 @@ export default {
   position: relative;
   top: 50%;
 }
+
+@media (max-with: 400px) {
+  .button-block {
+    margin-top: 30px;
+  }
+}
 </style>

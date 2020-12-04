@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row map">
-      <h2>Center is {{ currentCenter }}, zoom level is {{ currentZoom }}</h2>
+      <!-- <h2>Center is {{ currentCenter }}, zoom level is {{ currentZoom }}</h2> -->
       <!-- {{ hospitals }} -->
 
       <l-map

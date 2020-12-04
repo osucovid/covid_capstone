@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <h1 class="text-center text-info ">JSON Map</h1>
+    <h1 class="text-center text-info ">COVID19 Testing Hospitals Near You</h1>
 
     <div class="row">
       <div class="col-12">
-        <h1 class="text-center text-danger">Hospital Listx</h1>
+        <!-- <h1 class="text-center text-danger">Hospital List</h1> -->
       </div>
     </div>
     <div class="row">

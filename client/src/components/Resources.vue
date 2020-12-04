@@ -366,7 +366,7 @@ ul {
   text-align: left;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 360px) {
   #container {
     display: flex;
     flex-wrap: wrap;
@@ -377,7 +377,7 @@ ul {
   #text {
     padding: 25px;
     background-color: #ddd;
-    flex-basis: 60%;
+    flex-basis: 85%;
   }
 
   #card-container {
@@ -397,7 +397,7 @@ ul {
   height: 0;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 350px) {
   #container {
     display: flex;
     flex-wrap: wrap;
@@ -413,6 +413,32 @@ ul {
   #card-container {
     display: flex;
     flex-wrap: wrap;
+  }
+
+  #card {
+    flex-grow: 1;
+    padding: 30px;
+    border: 10px solid #ddd;
+    background-color: #eee;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  #container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #text {
+    padding: 25px;
+    background-color: #ddd;
+    flex-basis: 60%;
+  }
+
+  #card-container {
+    display: flex;
   }
 
   #card {
