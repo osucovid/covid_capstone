@@ -43,6 +43,28 @@ class PostService {
         });
     });
   }
+  // static getPosts({ commit }) {
+  //   commit("SET_SPINNER", true);
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(
+  //       axios
+  //         .get(url)
+  //         .then((res) => {
+  //           const data = res.data;
+  //           resolve(
+  //             data.map((post) => ({
+  //               ...post,
+  //             }))
+  //           );
+  //           commit("SET_SPINNER", false);
+  //         })
+  //         .catch((err) => {
+  //           reject(err);
+  //         }),
+  //       1000
+  //     );
+  //   });
+  // }
 
   //create post
   static insertPost(text) {

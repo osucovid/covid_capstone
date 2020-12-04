@@ -3,7 +3,7 @@
     <div>
       <br />
       <h2>Data as of: {{ new Date().toLocaleDateString() }}</h2>
-      
+
       <!---<img
         :src="require('../assets/graph.svg')"
         :width="800"
@@ -21,7 +21,7 @@
       <br />
       <h2>Customized Recommendations</h2>
       <br />
-    
+
       <div class="risk_assess">
         <RiskStatusCard1 />
         <RiskStatusCard2 />
@@ -70,7 +70,7 @@
 <script src="http://d3js.org/d3.v6.min.js" charset="utf-8"></script>
 
 <script>
-import PostService from '../DashboardService';
+import PostService from "../DashboardService";
 import * as d3 from "d3";
 import RiskStatusCard1 from "@/components/cards/RiskStatusCard1.vue";
 import RiskStatusCard2 from "@/components/cards/RiskStatusCard2.vue";
@@ -78,26 +78,24 @@ import RiskStatusCard3 from "@/components/cards/RiskStatusCard3.vue";
 import RiskStatusCardError from "@/components/cards/RiskStatusCardError.vue";
 import RiskCalc from "@/components/cards/RiskCalc.vue";
 
-
-
 export default {
   data() {
     return {
-      posts: ''
+      posts: "",
     };
   },
   mounted() {},
-  async created(){
-    try{
-      let values = []
+  async created() {
+    try {
+      let values = [];
       values = await PostService.getPosts();
       let i;
-      for(i = 0; i < values.length; i++){
-        if(values[i].email == this.$auth.user.email){
+      for (i = 0; i < values.length; i++) {
+        if (values[i].email == this.$auth.user.email) {
           this.posts = values[i];
         }
       }
-    } catch(err){
+    } catch (err) {
       this.error = err.message;
     }
   },
@@ -107,7 +105,7 @@ export default {
     RiskStatusCard2,
     RiskStatusCard3,
     RiskStatusCardError,
-    RiskCalc
+    RiskCalc,
   },
 };
 </script>
@@ -129,5 +127,8 @@ export default {
 }
 .risk_assess {
   display: flex;
+}
+.risk_assess .card-deck {
+  /* min-width: 80%; */
 }
 </style>
