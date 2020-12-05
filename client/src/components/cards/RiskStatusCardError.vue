@@ -9,7 +9,7 @@
 
           <b-icon
             icon="emoji-expressionless"
-            style="width: 150px; height: 150px;"
+            style="width: 150px; height: 150px; color: #dad9c6;"
             animation="spin"
           ></b-icon>
           <p>
