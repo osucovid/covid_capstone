@@ -31,7 +31,7 @@
     <div id="break"></div>
 
     <div id="text">
-      <h2>It's easy to <a href="/dashboard">get your assessment!</a></h2>
+      <h2>It's easy to get your assessment!</h2>
 
       <div id="card-container">
         <div id="card">
