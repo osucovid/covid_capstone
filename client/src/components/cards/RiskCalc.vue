@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="noData == 'true'">
+    <div v-if="noData == 'true' || !this.posts.form">
       <b-card-group deck>
         <b-card
           bg-variant="light"
@@ -14,6 +14,10 @@
               style="width: 150px; height: 150px;"
             ></b-icon>
             <p>There is insufficient data to assess your risk.</p>
+            <p>
+              Please <strong><a href="/mydata">fill in the froms</a></strong> to
+              get a personalized risk assessment.
+            </p>
           </b-card-text>
         </b-card>
       </b-card-group>
@@ -23,7 +27,6 @@
         <b-card bg-variant="light" title="Overall Risk" img-alt="Image" img-top>
           <b-card-text>
             <h2>{{ riskStatus }}</h2>
-
             <p v-if="riskStatus == 'Low'">
               <b-icon
                 icon="exclamation-circle-fill"
