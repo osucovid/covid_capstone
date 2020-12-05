@@ -31,11 +31,6 @@
             validation="required|email"
           />
           <div class="location_finder">
-            <!-- <script
-              type="application/javascript"
-              defer
-              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdX1xOMHIaR8I9j_1L1fiFHClnsZyItPM&libraries=places"
-            ></script> -->
             Your Address
             <input
               type="text"
