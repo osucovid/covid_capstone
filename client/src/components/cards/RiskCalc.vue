@@ -12,319 +12,326 @@
             <b-icon
               icon="emoji-neutral"
               style="width: 150px; height: 150px;"
+              variant="danger"
+              animation="throb"
             ></b-icon>
             <p>There is insufficient data to assess your risk.</p>
+            <p>
+              Please <strong><a href="/mydata">fill in the froms</a></strong> to
+              get a personalized risk assessment.
+            </p>
           </b-card-text>
         </b-card>
       </b-card-group>
     </div>
-    <b-card-group deck>
-      <b-card bg-variant="light" title="Overall Risk" img-alt="Image" img-top>
-        <b-card-text>
-          <h2>{{ riskStatus }}</h2>
+    <div v-if="this.posts.form">
+      <b-card-group deck>
+        <b-card bg-variant="light" title="Overall Risk" img-alt="Image" img-top>
+          <b-card-text>
+            <h2>{{ riskStatus }}</h2>
+            <p v-if="riskStatus == 'Low'">
+              <b-icon
+                icon="exclamation-circle-fill"
+                variant="success"
+                style="width: 150px; height: 150px;"
+                animation="fade"
+              ></b-icon>
+            </p>
+            <p v-if="riskStatus == 'Moderate'">
+              <b-icon
+                icon="exclamation-circle-fill"
+                variant="warning"
+                style="width: 150px; height: 150px;"
+                animation="fade"
+              ></b-icon>
+            </p>
+            <p v-if="riskStatus == 'High'">
+              <b-icon
+                icon="exclamation-circle-fill"
+                variant="danger"
+                style="width: 150px; height: 150px;"
+                animation="fade"
+              ></b-icon>
+            </p>
 
-          <p v-if="riskStatus == 'Low'">
-            <b-icon
-              icon="exclamation-circle-fill"
-              variant="success"
-              style="width: 150px; height: 150px;"
-              animation="fade"
-            ></b-icon>
-          </p>
-          <p v-if="riskStatus == 'Moderate'">
-            <b-icon
-              icon="exclamation-circle-fill"
-              variant="warning"
-              style="width: 150px; height: 150px;"
-              animation="fade"
-            ></b-icon>
-          </p>
-          <p v-if="riskStatus == 'High'">
-            <b-icon
-              icon="exclamation-circle-fill"
-              variant="danger"
-              style="width: 150px; height: 150px;"
-              animation="fade"
-            ></b-icon>
-          </p>
+            <strong>{{ pointsMessage }}</strong>
+            <br />
+            <div class="main_message">
+              {{ message }}
+            </div>
+          </b-card-text>
+          <template v-slot:footer>
+            <small class="text-muted"></small>
+          </template>
+        </b-card>
+      </b-card-group>
 
-          <strong>{{ pointsMessage }}</strong>
-          <br />
-          <div class="main_message">
-            {{ message }}
-          </div>
-        </b-card-text>
-        <template v-slot:footer>
-          <small class="text-muted"></small>
-        </template>
-      </b-card>
-    </b-card-group>
+      <b-card-group deck class="small_cards">
+        <b-card bg-variant="light" title="Age Risk" img-alt="Image" img-top>
+          <b-card-text>
+            <div class="small_risk_card" v-if="this.ageLevel == 'high'">
+              <img :src="require('../../assets/old-woman.svg')" :width="75" />
+              <b-icon
+                icon="exclamation-circle-fill"
+                variant="danger"
+                style="width: 75px; height: 75px;"
+              ></b-icon>
+            </div>
+            <div class="small_risk_card" v-if="this.ageLevel == 'mod'">
+              <img :src="require('../../assets/old-woman.svg')" :width="75" />
+              <b-icon
+                icon="exclamation-circle-fill"
+                variant="warning"
+                style="width: 75px; height: 75px;"
+              ></b-icon>
+            </div>
+            <div class="small_risk_card" v-if="this.ageLevel == 'low'">
+              <img :src="require('../../assets/old-woman.svg')" :width="75" />
+              <b-icon
+                icon="exclamation-circle-fill"
+                variant="success"
+                style="width: 75px; height: 75px;"
+              ></b-icon>
+            </div>
+            {{ ageMessage }}
+          </b-card-text>
+          <template v-slot:footer>
+            <small class="text-muted"></small>
+          </template>
+        </b-card>
 
-    <b-card-group deck class="small_cards">
-      <b-card bg-variant="light" title="Age Risk" img-alt="Image" img-top>
-        <b-card-text>
-          <div class="small_risk_card" v-if="this.ageLevel == 'high'">
-            <img :src="require('../../assets/old-woman.svg')" :width="75" />
-            <b-icon
-              icon="exclamation-circle-fill"
-              variant="danger"
-              style="width: 75px; height: 75px;"
-            ></b-icon>
-          </div>
-          <div class="small_risk_card" v-if="this.ageLevel == 'mod'">
-            <img :src="require('../../assets/old-woman.svg')" :width="75" />
-            <b-icon
-              icon="exclamation-circle-fill"
-              variant="warning"
-              style="width: 75px; height: 75px;"
-            ></b-icon>
-          </div>
-          <div class="small_risk_card" v-if="this.ageLevel == 'low'">
-            <img :src="require('../../assets/old-woman.svg')" :width="75" />
-            <b-icon
-              icon="exclamation-circle-fill"
-              variant="success"
-              style="width: 75px; height: 75px;"
-            ></b-icon>
-          </div>
-          {{ ageMessage }}
-        </b-card-text>
-        <template v-slot:footer>
-          <small class="text-muted"></small>
-        </template>
-      </b-card>
+        <b-card
+          bg-variant="light"
+          title="Mask Wearing Risk"
+          img-alt="Image"
+          img-top
+        >
+          <b-card-text>
+            <div class="small_risk_card" v-if="this.maskLevel == 'mild'">
+              <img :src="require('../../assets/face-mask.svg')" :width="75" />
+              <b-icon
+                icon="exclamation-circle-fill"
+                style="width: 75px; height: 75px; color: #ECE90C;"
+              ></b-icon>
+            </div>
+            <div class="small_risk_card" v-if="this.maskLevel == 'mod'">
+              <img :src="require('../../assets/face-mask.svg')" :width="75" />
+              <b-icon
+                icon="exclamation-circle-fill"
+                variant="warning"
+                style="width: 75px; height: 75px;"
+              ></b-icon>
+            </div>
+            <div class="small_risk_card" v-if="this.maskLevel == 'low'">
+              <img :src="require('../../assets/face-mask.svg')" :width="75" />
+              <b-icon
+                icon="exclamation-circle-fill"
+                variant="success"
+                style="width: 75px; height: 75px;"
+              ></b-icon>
+            </div>
+            {{ maskMessage }}
+          </b-card-text>
+          <template v-slot:footer>
+            <small class="text-muted"></small>
+          </template>
+        </b-card>
 
-      <b-card
-        bg-variant="light"
-        title="Mask Wearing Risk"
-        img-alt="Image"
-        img-top
-      >
-        <b-card-text>
-          <div class="small_risk_card" v-if="this.maskLevel == 'mild'">
-            <img :src="require('../../assets/face-mask.svg')" :width="75" />
-            <b-icon
-              icon="exclamation-circle-fill"
-              style="width: 75px; height: 75px; color: #ECE90C;"
-            ></b-icon>
-          </div>
-          <div class="small_risk_card" v-if="this.maskLevel == 'mod'">
-            <img :src="require('../../assets/face-mask.svg')" :width="75" />
-            <b-icon
-              icon="exclamation-circle-fill"
-              variant="warning"
-              style="width: 75px; height: 75px;"
-            ></b-icon>
-          </div>
-          <div class="small_risk_card" v-if="this.maskLevel == 'low'">
-            <img :src="require('../../assets/face-mask.svg')" :width="75" />
-            <b-icon
-              icon="exclamation-circle-fill"
-              variant="success"
-              style="width: 75px; height: 75px;"
-            ></b-icon>
-          </div>
-          {{ maskMessage }}
-        </b-card-text>
-        <template v-slot:footer>
-          <small class="text-muted"></small>
-        </template>
-      </b-card>
+        <b-card
+          bg-variant="light"
+          title="Pre-existing Medical Conditions Risk"
+          img-alt="Image"
+          img-top
+          class=""
+        >
+          <b-card-text>
+            <div v-if="this.medLevel == 'high'">
+              <img :src="require('../../assets/heartbeat.svg')" :width="75" />
+              <b-icon
+                icon="exclamation-circle-fill"
+                variant="danger"
+                style="width: 75px; height: 75px;"
+              ></b-icon>
+            </div>
+            <div v-if="this.medLevel == 'low'">
+              <img :src="require('../../assets/heartbeat.svg')" :width="75" />
+              <b-icon
+                icon="exclamation-circle-fill"
+                variant="success"
+                style="width: 75px; height: 75px;"
+              ></b-icon>
+            </div>
+            {{ medMessage }}
+          </b-card-text>
+          <template v-slot:footer>
+            <small class="text-muted"></small>
+          </template>
+        </b-card>
 
-      <b-card
-        bg-variant="light"
-        title="Pre-existing Medical Conditions Risk"
-        img-alt="Image"
-        img-top
-        class=""
-      >
-        <b-card-text>
-          <div v-if="this.medLevel == 'high'">
-            <img :src="require('../../assets/heartbeat.svg')" :width="75" />
-            <b-icon
-              icon="exclamation-circle-fill"
-              variant="danger"
-              style="width: 75px; height: 75px;"
-            ></b-icon>
-          </div>
-          <div v-if="this.medLevel == 'low'">
-            <img :src="require('../../assets/heartbeat.svg')" :width="75" />
-            <b-icon
-              icon="exclamation-circle-fill"
-              variant="success"
-              style="width: 75px; height: 75px;"
-            ></b-icon>
-          </div>
-          {{ medMessage }}
-        </b-card-text>
-        <template v-slot:footer>
-          <small class="text-muted"></small>
-        </template>
-      </b-card>
+        <b-card
+          bg-variant="light"
+          title="Social Distancing Risk"
+          img-alt="Image"
+          img-top
+        >
+          <b-card-text>
+            <div class="small_risk_card" v-if="this.socialLevel == 'mild'">
+              <img
+                :src="require('../../assets/social-distancing.svg')"
+                :width="75"
+              />
+              <b-icon
+                icon="exclamation-circle-fill"
+                style="width: 75px; height: 75px; color: #ECE90C;"
+              ></b-icon>
+            </div>
+            <div class="small_risk_card" v-if="this.socialLevel == 'mod'">
+              <img
+                :src="require('../../assets/social-distancing.svg')"
+                :width="75"
+              />
+              <b-icon
+                icon="exclamation-circle-fill"
+                variant="warning"
+                style="width: 75px; height: 75px;"
+              ></b-icon>
+            </div>
+            <div class="small_risk_card" v-if="this.socialLevel == 'low'">
+              <img
+                :src="require('../../assets/social-distancing.svg')"
+                :width="75"
+              />
+              <b-icon
+                icon="exclamation-circle-fill"
+                variant="success"
+                style="width: 75px; height: 75px;"
+              ></b-icon>
+            </div>
+            {{ socialMessage }}
+          </b-card-text>
+          <template v-slot:footer>
+            <small class="text-muted"></small>
+          </template>
+        </b-card>
+      </b-card-group>
 
-      <b-card
-        bg-variant="light"
-        title="Social Distancing Risk"
-        img-alt="Image"
-        img-top
-      >
-        <b-card-text>
-          <div class="small_risk_card" v-if="this.socialLevel == 'mild'">
-            <img
-              :src="require('../../assets/social-distancing.svg')"
-              :width="75"
-            />
-            <b-icon
-              icon="exclamation-circle-fill"
-              style="width: 75px; height: 75px; color: #ECE90C;"
-            ></b-icon>
-          </div>
-          <div class="small_risk_card" v-if="this.socialLevel == 'mod'">
-            <img
-              :src="require('../../assets/social-distancing.svg')"
-              :width="75"
-            />
-            <b-icon
-              icon="exclamation-circle-fill"
-              variant="warning"
-              style="width: 75px; height: 75px;"
-            ></b-icon>
-          </div>
-          <div class="small_risk_card" v-if="this.socialLevel == 'low'">
-            <img
-              :src="require('../../assets/social-distancing.svg')"
-              :width="75"
-            />
-            <b-icon
-              icon="exclamation-circle-fill"
-              variant="success"
-              style="width: 75px; height: 75px;"
-            ></b-icon>
-          </div>
-          {{ socialMessage }}
-        </b-card-text>
-        <template v-slot:footer>
-          <small class="text-muted"></small>
-        </template>
-      </b-card>
-    </b-card-group>
+      <b-card-group deck>
+        <b-card bg-variant="light" title="Work Risk" img-alt="Image" img-top>
+          <b-card-text>
+            <div class="small_risk_card" v-if="this.workLevel == 'mild'">
+              <img :src="require('../../assets/worker.svg')" :width="75" />
+              <b-icon
+                icon="exclamation-circle-fill"
+                style="width: 75px; height: 75px; color: #ECE90C;"
+              ></b-icon>
+            </div>
+            <div class="small_risk_card" v-if="this.workLevel == 'mod'">
+              <img :src="require('../../assets/worker.svg')" :width="75" />
+              <b-icon
+                icon="exclamation-circle-fill"
+                variant="warning"
+                style="width: 75px; height: 75px;"
+              ></b-icon>
+            </div>
+            <div class="small_risk_card" v-if="this.workLevel == 'low'">
+              <img :src="require('../../assets/worker.svg')" :width="75" />
+              <b-icon
+                icon="exclamation-circle-fill"
+                variant="success"
+                style="width: 75px; height: 75px;"
+              ></b-icon>
+            </div>
 
-    <b-card-group deck>
-      <b-card bg-variant="light" title="Work Risk" img-alt="Image" img-top>
-        <b-card-text>
-          <div class="small_risk_card" v-if="this.workLevel == 'mild'">
-            <img :src="require('../../assets/worker.svg')" :width="75" />
-            <b-icon
-              icon="exclamation-circle-fill"
-              style="width: 75px; height: 75px; color: #ECE90C;"
-            ></b-icon>
-          </div>
-          <div class="small_risk_card" v-if="this.workLevel == 'mod'">
-            <img :src="require('../../assets/worker.svg')" :width="75" />
-            <b-icon
-              icon="exclamation-circle-fill"
-              variant="warning"
-              style="width: 75px; height: 75px;"
-            ></b-icon>
-          </div>
-          <div class="small_risk_card" v-if="this.workLevel == 'low'">
-            <img :src="require('../../assets/worker.svg')" :width="75" />
-            <b-icon
-              icon="exclamation-circle-fill"
-              variant="success"
-              style="width: 75px; height: 75px;"
-            ></b-icon>
-          </div>
+            {{ workMessage }}
+          </b-card-text>
+          <template v-slot:footer>
+            <small class="text-muted"></small>
+          </template>
+        </b-card>
 
-          {{ workMessage }}
-        </b-card-text>
-        <template v-slot:footer>
-          <small class="text-muted"></small>
-        </template>
-      </b-card>
+        <b-card bg-variant="light" title="School Risk" img-alt="Image" img-top>
+          <b-card-text>
+            <div class="small_risk_card" v-if="this.schoolLevel == 'high'">
+              <img :src="require('../../assets/school.svg')" :width="75" />
+              <b-icon
+                icon="exclamation-circle-fill"
+                variant="danger"
+                style="width: 75px; height: 75px;"
+              ></b-icon>
+            </div>
+            <div class="small_risk_card" v-if="this.schoolLevel == 'mild'">
+              <img :src="require('../../assets/school.svg')" :width="75" />
+              <b-icon
+                icon="exclamation-circle-fill"
+                style="width: 75px; height: 75px; color: #ECE90C;"
+              ></b-icon>
+            </div>
+            <div class="small_risk_card" v-if="this.schoolLevel == 'mod'">
+              <img :src="require('../../assets/school.svg')" :width="75" />
+              <b-icon
+                icon="exclamation-circle-fill"
+                variant="warning"
+                style="width: 75px; height: 75px;"
+              ></b-icon>
+            </div>
+            <div class="small_risk_card" v-if="this.schoolLevel == 'low'">
+              <img :src="require('../../assets/school.svg')" :width="75" />
+              <b-icon
+                icon="exclamation-circle-fill"
+                variant="success"
+                style="width: 75px; height: 75px;"
+              ></b-icon>
+            </div>
 
-      <b-card bg-variant="light" title="School Risk" img-alt="Image" img-top>
-        <b-card-text>
-          <div class="small_risk_card" v-if="this.schoolLevel == 'high'">
-            <img :src="require('../../assets/school.svg')" :width="75" />
-            <b-icon
-              icon="exclamation-circle-fill"
-              variant="danger"
-              style="width: 75px; height: 75px;"
-            ></b-icon>
-          </div>
-          <div class="small_risk_card" v-if="this.schoolLevel == 'mild'">
-            <img :src="require('../../assets/school.svg')" :width="75" />
-            <b-icon
-              icon="exclamation-circle-fill"
-              style="width: 75px; height: 75px; color: #ECE90C;"
-            ></b-icon>
-          </div>
-          <div class="small_risk_card" v-if="this.schoolLevel == 'mod'">
-            <img :src="require('../../assets/school.svg')" :width="75" />
-            <b-icon
-              icon="exclamation-circle-fill"
-              variant="warning"
-              style="width: 75px; height: 75px;"
-            ></b-icon>
-          </div>
-          <div class="small_risk_card" v-if="this.schoolLevel == 'low'">
-            <img :src="require('../../assets/school.svg')" :width="75" />
-            <b-icon
-              icon="exclamation-circle-fill"
-              variant="success"
-              style="width: 75px; height: 75px;"
-            ></b-icon>
-          </div>
+            {{ schoolMessage }}
+          </b-card-text>
+          <template v-slot:footer>
+            <small class="text-muted"></small>
+          </template>
+        </b-card>
 
-          {{ schoolMessage }}
-        </b-card-text>
-        <template v-slot:footer>
-          <small class="text-muted"></small>
-        </template>
-      </b-card>
+        <b-card bg-variant="light" title="Travel Risk" img-alt="Image" img-top>
+          <b-card-text>
+            <div class="small_risk_card" v-if="this.travelLevel == 'high'">
+              <img :src="require('../../assets/globe.svg')" :width="75" />
+              <b-icon
+                icon="exclamation-circle-fill"
+                variant="danger"
+                style="width: 75px; height: 75px;"
+              ></b-icon>
+            </div>
+            <div class="small_risk_card" v-if="this.travelLevel == 'mild'">
+              <img :src="require('../../assets/globe.svg')" :width="75" />
+              <b-icon
+                icon="exclamation-circle-fill"
+                style="width: 75px; height: 75px; color: #ECE90C;"
+              ></b-icon>
+            </div>
+            <div class="small_risk_card" v-if="this.travelLevel == 'mod'">
+              <img :src="require('../../assets/globe.svg')" :width="75" />
+              <b-icon
+                icon="exclamation-circle-fill"
+                variant="warning"
+                style="width: 75px; height: 75px;"
+              ></b-icon>
+            </div>
+            <div class="small_risk_card" v-if="this.travelLevel == 'low'">
+              <img :src="require('../../assets/globe.svg')" :width="75" />
+              <b-icon
+                icon="exclamation-circle-fill"
+                variant="success"
+                style="width: 75px; height: 75px;"
+              ></b-icon>
+            </div>
 
-      <b-card bg-variant="light" title="Travel Risk" img-alt="Image" img-top>
-        <b-card-text>
-          <div class="small_risk_card" v-if="this.travelLevel == 'high'">
-            <img :src="require('../../assets/globe.svg')" :width="75" />
-            <b-icon
-              icon="exclamation-circle-fill"
-              variant="danger"
-              style="width: 75px; height: 75px;"
-            ></b-icon>
-          </div>
-          <div class="small_risk_card" v-if="this.travelLevel == 'mild'">
-            <img :src="require('../../assets/globe.svg')" :width="75" />
-            <b-icon
-              icon="exclamation-circle-fill"
-              style="width: 75px; height: 75px; color: #ECE90C;"
-            ></b-icon>
-          </div>
-          <div class="small_risk_card" v-if="this.travelLevel == 'mod'">
-            <img :src="require('../../assets/globe.svg')" :width="75" />
-            <b-icon
-              icon="exclamation-circle-fill"
-              variant="warning"
-              style="width: 75px; height: 75px;"
-            ></b-icon>
-          </div>
-          <div class="small_risk_card" v-if="this.travelLevel == 'low'">
-            <img :src="require('../../assets/globe.svg')" :width="75" />
-            <b-icon
-              icon="exclamation-circle-fill"
-              variant="success"
-              style="width: 75px; height: 75px;"
-            ></b-icon>
-          </div>
-
-          {{ travelMessage }}
-        </b-card-text>
-        <template v-slot:footer>
-          <small class="text-muted"></small>
-        </template>
-      </b-card>
-    </b-card-group>
+            {{ travelMessage }}
+          </b-card-text>
+          <template v-slot:footer>
+            <small class="text-muted"></small>
+          </template>
+        </b-card>
+      </b-card-group>
+    </div>
   </div>
 </template>
 
@@ -375,7 +382,7 @@ export default {
       console.log("object length", count);
       console.log(this.posts.form);
 
-      if (count < 1) {
+      if (count <= 2) {
         this.message = "There is insufficient data.";
         this.noData = "true";
       }
