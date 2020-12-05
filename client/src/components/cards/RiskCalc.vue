@@ -1,9 +1,28 @@
 <template>
   <div>
+    <div v-if="noData == 'true'">
+      <b-card-group deck>
+        <b-card
+          bg-variant="light"
+          title="Insufficent Data"
+          img-alt="Image"
+          img-top
+        >
+          <b-card-text>
+            <b-icon
+              icon="emoji-neutral"
+              style="width: 150px; height: 150px;"
+            ></b-icon>
+            <p>There is insufficient data to assess your risk.</p>
+          </b-card-text>
+        </b-card>
+      </b-card-group>
+    </div>
     <b-card-group deck>
       <b-card bg-variant="light" title="Overall Risk" img-alt="Image" img-top>
         <b-card-text>
           <h2>{{ riskStatus }}</h2>
+
           <p v-if="riskStatus == 'Low'">
             <b-icon
               icon="exclamation-circle-fill"
@@ -337,6 +356,7 @@ export default {
       workLevel: "",
       schoolLevel: "",
       travelLevel: "",
+      noData: "",
     };
   },
   async created() {
@@ -349,6 +369,15 @@ export default {
         if (values[i].email == this.$auth.user.email) {
           this.posts = values[i];
         }
+      }
+
+      var count = Object.keys(this.posts.form).length;
+      console.log("object length", count);
+      console.log(this.posts.form);
+
+      if (count < 1) {
+        this.message = "There is insufficient data.";
+        this.noData = "true";
       }
 
       // POINTS ALLOTMENT
@@ -730,7 +759,9 @@ export default {
         " this.posts.form.travel_details " +
         this.posts.form.travel_details +
         " this.posts.form.travel_details " +
-        this.posts.form.travel_details + "this.posts.form.travel_type" + this.posts.form.travel_type
+        this.posts.form.travel_details +
+        "this.posts.form.travel_type" +
+        this.posts.form.travel_type
     );
 
     this.pointsMessage = "Your Points Total: " + totalPoints;
