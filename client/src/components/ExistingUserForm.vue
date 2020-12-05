@@ -251,11 +251,6 @@
 
             <h2>Employment Details</h2>
             <p>Fill out the following form about your employment</p>
-            <div class="skip_button">
-              <b-button href="#student-form"
-                >Skip this form if not applicable</b-button
-              >
-            </div>
             <formulate-input
               name="employment_type"
               type="select"
@@ -352,11 +347,7 @@
             <p>
               Fill out the following form about your details related to school
             </p>
-            <div class="skip_button">
-              <b-button href="#travel-form"
-                >Skip this form if not applicable</b-button
-              >
-            </div>
+
             <formulate-input
               name="school_type"
               type="select"
@@ -424,11 +415,7 @@
               Fill out the following form about your recent travel, if
               applicable
             </p>
-            <div class="skip_button">
-              <b-button href="#submit-button"
-                >Skip this form if not applicable</b-button
-              >
-            </div>
+
             <formulate-input
               name="travel_type"
               type="radio"
@@ -490,7 +477,6 @@
             <!-- </b-collapse> -->
           </div>
           <!-- End Workplace Form -->
-
 
           <formulate-input
             type="submit"
