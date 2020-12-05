@@ -4,14 +4,13 @@
       <b-card bg-variant="light" title="Risk Status" img-alt="Image" img-top>
         <b-card-text>
           <h3>
-            Not enough info for Recommendations.
+            Either you didn't input form data... or the page is loading!
           </h3>
 
           <b-icon
-            icon="emoji-neutral"
+            icon="emoji-expressionless"
             style="width: 150px; height: 150px;"
-            variant="danger"
-            animation="throb"
+            animation="spin"
           ></b-icon>
           <p>
             <strong
