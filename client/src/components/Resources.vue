@@ -12,7 +12,7 @@
           tool.
         </p>
         <b-button v-b-toggle.sidebar-1>Check How-To Guide</b-button>
-        <b-sidebar id="sidebar-1" width="360px" title="How-to Guide" shadow>
+        <b-sidebar id="sidebar-1" width="360px" title="How-To Guide" shadow>
           <div class="px-3 py-2 text-left">
             <strong>How do I use the Risk Assessment Tool?</strong>
             <ol>
