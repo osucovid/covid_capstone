@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="noData == 'true' || !this.posts.form">
+    <div v-if="noData == 'true'">
       <b-card-group deck>
         <b-card
           bg-variant="light"
@@ -12,6 +12,8 @@
             <b-icon
               icon="emoji-neutral"
               style="width: 150px; height: 150px;"
+              variant="danger"
+              animation="throb"
             ></b-icon>
             <p>There is insufficient data to assess your risk.</p>
             <p>
