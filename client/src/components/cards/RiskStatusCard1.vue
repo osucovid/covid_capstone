@@ -72,7 +72,11 @@ export default {
       this.message =
         "It is highly recommended that you wear a mask at all times when around other people or in public.";
       this.reco = "high";
-    } else {
+    } else if(!this.posts.form.mask_wearing_percentage) {
+      this.message =
+        "Not enough info";
+    }
+    else{
       this.message =
         "You are doing an awesome job! Continue wearing a mask when in public, or around other people!";
       this.reco = "great";

@@ -3,10 +3,10 @@
     <b-card-group deck>
       <b-card bg-variant="light" title="Risk Status" img-alt="Image" img-top>
         <b-card-text>
-          Please fill out the form on My Data to see custom Recommendations.
+          Not enough info for Recommendations.
         </b-card-text>
         <template v-slot:footer>
-          <small class="text-muted">Last updated 3 mins ago</small>
+          <small class="text-muted"></small>
         </template>
       </b-card>
     </b-card-group>

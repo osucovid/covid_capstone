@@ -22,10 +22,13 @@
       <h2>Customized Recommendations</h2>
       <br />
 
-      <div class="risk_assess">
+      <div v-if="this.posts.form" class="risk_assess">
         <RiskStatusCard1 />
         <RiskStatusCard2 />
         <RiskStatusCard3 />
+      </div>
+      <div v-else-if="!this.posts.form">
+        <RiskStatusCardError />
       </div>
 
       <b-card-group deck>
