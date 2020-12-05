@@ -496,10 +496,12 @@
           </div>
           <!-- End Workplace Form -->
 
+          <!-- REMOVE BEFORE FINAL DEPLOY -->
           JSON below used for testing
 
           <pre class="code" v-text="formValues" />
           <pre class="code" v-text="location" />
+          <!-- REMOVE BEFORE FINAL DEPLOY -->
 
           <formulate-input
             type="submit"
