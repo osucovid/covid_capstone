@@ -3,7 +3,7 @@ Quick set up guide
 This version is separated into client and server folders.
 
 1. Clone repo with "git clone https://github.com/osucovid/covid_capstone.git"
-2. Vue runs client-side only. For the back end, install dependencies with 'run "npm i express cors mongodb nodemon body-parser"' in the server folder.
+2. Vue runs client-side only. For the back end, install dependencies with 'run "npm i express cors mongodb nodemon body-parser"' in the root folder.
 3. Within the client folder, install Vue with manual option.
   - Select: Babel, Router, CSS-Preprocessors, Linter / Formatter
   - Enable history mode
