@@ -293,17 +293,6 @@
                 >
               </li>
             </ul>
-
-            <h2>Map Data</h2>
-            <ul>
-              <li>
-                <a
-                  href="https://data.sfgov.org/COVID-19/COVID-19-Testing-Locations/dtit-7gp4"
-                >
-                  DataSF | COVID-19 Testing Locations
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
