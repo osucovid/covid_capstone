@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-
     <Intro />
   </div>
 </template>
@@ -11,7 +10,7 @@ import Intro from "@/components/Intro.vue";
 export default {
   name: "Home",
   components: {
-    Intro
+    Intro,
   },
 };
 </script>

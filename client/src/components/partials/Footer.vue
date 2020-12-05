@@ -1,9 +1,7 @@
 <template>
   <div class="nav_footer">
     <b-navbar toggleable="lg" type="light" variant="light">
-      <!-- <pre>Created for CS467 at Oregon State University, Fall 2020</pre> -->
       Created for CS467 at Oregon State University, Fall 2020
-      <!-- <b-navbar-toggle target="nav-collapse"></b-navbar-toggle> -->
     </b-navbar>
   </div>
 </template>

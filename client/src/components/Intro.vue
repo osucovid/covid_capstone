@@ -18,14 +18,16 @@
         recommendations from researchers and public health departments.
       </p>
 
-      <p>
-        <strong
-          ><a href="/mydata"
-            >Begin by registering for account or filling out a daily assessment
-            form</a
-          ></strong
-        >!
-      </p>
+      <div class="form-link">
+        <p>
+          <strong
+            ><a href="/mydata"
+              >Begin by registering for account or filling out a daily
+              assessment form</a
+            ></strong
+          >!
+        </p>
+      </div>
     </div>
 
     <div id="break"></div>
@@ -122,5 +124,11 @@
     border: 10px solid #ddd;
     background-color: #eee;
   }
+}
+.form-link {
+  font-size: 1.3rem;
+}
+#card-container {
+  margin-top: 20px;
 }
 </style>

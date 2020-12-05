@@ -2,8 +2,6 @@
   <div>
     <div class="row map">
       <!-- <h2>Center is {{ currentCenter }}, zoom level is {{ currentZoom }}</h2> -->
-      <!-- {{ hospitals }} -->
-
       <l-map
         @update:zoom="zoomUpdate"
         @update:center="centerUpdate"
@@ -18,15 +16,11 @@
           v-for="(hospital, index) in hospitals"
           :lat-lng="getLatLng(hospital)"
         >
-          <!-- delete popup later -->
-          <!-- <l-popup :content="hospital"></l-popup> -->
           <l-icon :icon-url="icon" :icon-size="hospital.iconSize" />
         </l-marker>
       </l-map>
-      <!-- <pre class="code" v-text="address" /> -->
       {{ address }}
     </div>
-    <!-- /.row map -->
   </div>
 </template>
 
